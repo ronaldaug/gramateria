@@ -1,6 +1,6 @@
 {
   "name": "Gramateria",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Gramateria - a drag and drop materialize css design web builder",
   "main": "index.js",
