@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <title>Gramateria</title>
     <link rel="stylesheet" href="dist/css/grapes.min.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="dist/css/overwrite.css">
+    
+    <link rel="shortcut icon" href="favicon.ico" />
     <script src="dist/grapes.min.js"></script>
     <script src="dist/js/grapesjs-plugin-export.min.js"></script>
+
 </head>
 <style>
     body,
@@ -38,6 +40,13 @@
         width: 600px;
         height: 38px;
     }
+    
+    .gjs-blocks-cs .fa-toggle-down:after {
+        background-image: url('img/hover/nav2.jpg');
+        background-size: cover;
+        width: 600px;
+        height: 129px;
+    }
 
     .gjs-blocks-cs .fa-desktop:after {
         background-image: url('img/hover/footer.jpg');
@@ -59,6 +68,53 @@
         width: 400px;
         height: 154px;
     }
+    
+    .gjs-blocks-cs .fa-minus-square:after,
+    .gjs-blocks-cs .fa-sticky-note-o:after,
+    .gjs-blocks-cs .fa-dot-circle-o:after,
+    .gjs-blocks-cs .fa-check-square-o:after,
+    .gjs-blocks-cs .fa-caret-square-o-down:after{
+        content: 'Please insert this within the <form> tag.';
+    }
+    .gjs-blocks-cs .fa-dot-circle-o:after,
+    .gjs-blocks-cs .fa-check-square-o:after,
+    .gjs-blocks-cs .fa-caret-square-o-down:after,
+    .gjs-blocks-cs .fa-minus-square:after,
+    .gjs-blocks-cs .fa-sticky-note-o:after{
+        line-height: 2;
+        position: fixed;
+        top: 0;
+        right: 220px;
+        opacity: 0;
+        z-index: 2;
+        visibility: hidden;
+        transition: all ease-in-out 0.3s;
+        -webkit-transition: all ease-in-out 0.3s;
+        -moz-transition: all ease-in-out 0.3s;
+        width: 300px;
+        height:30px;
+        font-size:13px;
+        padding:20px;
+        background:#ffffff;
+        color:#000;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        box-shadow: 1px 2px 10px rgba(116,116,116,0.70);
+        -moz-box-shadow: 1px 2px 10px rgba(116,116,116,0.70);
+        -webkit-box-shadow: 1px 2px 10px rgba(116,116,116,0.70);
+    }
+    .gjs-blocks-cs .fa-dot-circle-o:hover:after,
+    .gjs-blocks-cs .fa-check-square-o:hover:after,
+    .gjs-blocks-cs .fa-caret-square-o-down:hover:after,
+    .gjs-blocks-cs .fa-sticky-note-o:hover:after,
+    .gjs-blocks-cs .fa-minus-square:hover:after{
+        top: 30%;
+        opacity: 1;
+        display: block;
+        visibility: visible;     
+    }
+    
 
     .gjs-blocks-cs .fa-list-alt:after {
         background-image: url('img/hover/parallax.jpg');
@@ -66,14 +122,15 @@
         width: 400px;
         height: 197px;
     }
-
+    
+    .gjs-blocks-cs .fa-toggle-down:after,
     .gjs-blocks-cs .fa-wpforms:after,
     .gjs-blocks-cs .fa-sitemap:after,
     .gjs-blocks-cs .fa-credit-card:after,
     .gjs-blocks-cs .fa-desktop:after,
     .gjs-blocks-cs .fa-window-maximize:after,
     .gjs-blocks-cs .fa-list-alt:after,
-    .gjs-blocks-cs .fa-newspaper-o:after {
+    .gjs-blocks-cs .fa-newspaper-o:after{ 
         content: '';
         line-height: 2;
         position: fixed;
@@ -87,7 +144,9 @@
         -webkit-transition: all ease-in-out 0.3s;
         -moz-transition: all ease-in-out 0.3s;
     }
+    
 
+    .gjs-blocks-cs .fa-toggle-down:hover:after,
     .gjs-blocks-cs .fa-wpforms:hover:after,
     .gjs-blocks-cs .fa-sitemap:hover:after,
     .gjs-blocks-cs .fa-credit-card:hover:after,
@@ -293,7 +352,21 @@
                 display: table-cell;
                 height: 75px;
             }
-
+            #myForm .col:empty{
+                display: table-cell;
+                height: 75px;
+                position:relative;
+            }
+            #myForm .col:empty:after{
+                content: 'Add form elements here';
+                color:#888;
+                position:absolute;
+                left:10px;
+                top:10px;
+                display:block;
+                width:400px;
+            }
+            
             nav ul a,
             nav .brand-logo {
                 color: #444;
@@ -325,7 +398,11 @@
             footer.gram-footer ul.collection{
                 border:0;
             }
-
+            .input-field [type="checkbox"] + label,
+            .input-field [type="radio"]:not(:checked) + label,
+            .input-field [type="radio"]:checked + label {
+            pointer-events: auto;
+            }
             /* This is orange and you can customize your own color */
 
             input:not([type]):focus:not([readonly]),
