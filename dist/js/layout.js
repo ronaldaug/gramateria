@@ -46,7 +46,7 @@
 //              id: 'open-github',
 //              run: function (editor, sender) {
 //                  sender.set('active', false);
-//                  window.open('https://github.com/artf/grapesjs', '_blank');
+//                  window.open('https://github.com/ronaldaug/gramateria', '_blank');
 //              }
 //                }, 
               {
@@ -213,10 +213,11 @@
                   attributes: {
                       class: 'fa fa-list-alt'
                   }
-                    },
+                    }
+              ,
               {
                   id: 'nav',
-                  label: 'Nav bar',
+                  label: 'Navbar 1',
                   category: 'Section',
                   content: '<nav class="light-blue lighten-1" role="navigation">' +
                       '<div class="nav-wrapper container">' +
@@ -239,7 +240,50 @@
                       class: 'fa fa-window-maximize'
                   }
                     },
-
+              {
+                  id: 'dropdownNav',
+                  label: 'Navbar 2',
+                  category: 'Section',
+                  content: `<!-- Dropdown Structure -->
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container">
+    <a href="#!" class="brand-logo white-text">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="white-text light-blue lighten-1" href="sass.html">Sass</a></li>
+      <li><a class="white-text light-blue lighten-1" href="badges.html">Components</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button white-text light-blue lighten-1" href="#!" data-activates="mainmenu-dropdown">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <ul id="nav-mobile" class="side-nav light-blue">
+    <li><a class="white-text light-blue lighten-1" href="sass.html">Sass</a></li>
+      <li><a class="white-text light-blue lighten-1" href="badges.html">Components</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button white-text light-blue lighten-1" href="#!" data-activates="sidemenu-dropdown">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+<ul id="mainmenu-dropdown" class="dropdown-content">
+  <li><a class="white-text light-blue lighten-1" href="#!">one</a></li>
+  <li><a class="white-text light-blue lighten-1" href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a class="white-text light-blue lighten-1" href="#!">three</a></li>
+</ul>
+<ul id="sidemenu-dropdown" class="dropdown-content">
+  <li><a class="white-text light-blue lighten-1" href="#!">one</a></li>
+  <li><a class="white-text light-blue lighten-1" href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a class="white-text light-blue lighten-1" href="#!">three</a></li>
+</ul>
+<script type="text/javascript">
+$("a.dropdown-button").dropdown();
+$('.button-collapse').sideNav();
+</script>`,
+                  attributes: {
+                      class: 'fa fa-toggle-down'
+                  }
+              }
+              ,
               {
                   id: 'footer',
                   label: 'Footer',
@@ -261,7 +305,7 @@
                       '</ul>' +
                       '</div>' +
                       '<div class="col l3 s12">' +
-                      '<h5 class="white-text">Connect</h5>' +   
+                      '<h5 class="white-text">Connect</h5>' +
                       '<ul class="collection light-blue with-header">' +
                       '<li class="collection-item"><a class="white-text" href="#!">Link 1</a></li>' +
                       '<li class="collection-item"><a class="white-text" href="#!">Link 2</a></li>' +
@@ -396,22 +440,22 @@
                   attributes: {
                       class: 'fa fa-bars'
                   },
-                  content:`<ul class="collection">
+                  content: `<ul class="collection">
                     <li class="collection-item">List One</li>
                     <li class="collection-item">List Two</li>
                     <li class="collection-item">List Three</li>
                     <li class="collection-item">List Four</li>
                     </ul>`,
                     },
-              
-                 {
-                     id: 'list2',
-                     label: 'List Two',
-                     category: 'Basic',
-                     attributes:{
-                         class: 'fa fa-bars'
-                     },
-                     content:`<ul class="collection">
+
+              {
+                  id: 'list2',
+                  label: 'List Two',
+                  category: 'Basic',
+                  attributes: {
+                      class: 'fa fa-bars'
+                  },
+                  content: `<ul class="collection">
     <li class="collection-item avatar">
       <img src="https://randomuser.me/api/portraits/women/83.jpg" alt="" class="circle">
       <span class="title">Title</span>
@@ -453,7 +497,7 @@
                   attributes: {
                       class: 'fa fa-table'
                   },
-                  content:`<table class="responsive-table centered striped highlight bordered">
+                  content: `<table class="responsive-table centered striped highlight bordered">
         <thead>
           <tr>
               <th>Name</th>
@@ -503,6 +547,25 @@
                       class: 'fa fa-object-group'
                   }
                     }
+              ,
+              {
+                  id: 'dropdown',
+                  label: 'dropdown',
+                  category: 'Button',
+                  content: `<!-- Dropdown Trigger -->
+  <a class='dropdown-button btn orange' href='#' data-activates='dropdown1'>Drop Me!</a>
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a class="white-text orange" href="#!">one</a></li>
+    <li><a class="white-text orange" href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a class="white-text orange" href="#!">three</a></li>
+    <li><a class="white-text orange" href="#!"><i class="material-icons">view_module</i>four</a></li>
+    <li><a class="white-text orange" href="#!"><i class="material-icons">cloud</i>five</a></li>
+  </ul><script>$('.dropdown-button').dropdown();</script>`,
+                  attributes: {
+                      class: 'fa fa-list'
+                  }
+              }
               , {
                   id: 'modal',
                   label: 'modal',
@@ -613,7 +676,7 @@
                        <ul><li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li><li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li><li><a class="btn-floating green"><i class="material-icons">publish</i></a></li><li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li></ul>
                       </div>`,
                   attributes: {
-                      class: 'fa fa-dot-circle-o'
+                      class: 'fa fa-bullseye'
                   }
             }, {
                   id: 'fabtool',
@@ -654,6 +717,155 @@
                       content: 'Link',
                   },
                     }, {
+                  id: 'formtag',
+                  label: 'Form Tag',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-file-text'
+                  },
+                  content: `<form id="myForm" action="#" method="POST"><div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">
+                <div class="col m12" data-gjs-draggable=".row" data-gjs-custom-name="col12"></div>
+              </div></form>`
+              }
+                  , {
+                  id: 'formgroup',
+                  label: 'Form group',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-list'
+                  },
+                  content: `<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          This is an inline input field:
+          <div class="input-field inline">
+            <input id="email" type="email" class="validate">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>`
+                    },
+              {
+                  id: 'iconinput',
+                  label: 'input',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-minus-square'
+                  },
+                  content: `<div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+      </div>`
+                    }, {
+                  id: 'textarea',
+                  label: 'Textarea',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-sticky-note-o'
+                  },
+                  content: `<div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>`,
+                 }, {
+                  id: 'select',
+                  label: 'Select',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-caret-square-o-down'
+                  },
+                  content: `<div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div><script>$('select').material_select();</script>`
+                 },
+              {
+                  id: 'radio',
+                  label: 'Radio',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-dot-circle-o'
+                  },
+                  content: `<div class="row">
+        <div class="input-field col s12">
+<p>
+      <input name="group1" type="radio" id="test1"/>
+      <label for="test1">Red</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test2"/>
+      <label for="test2">Yellow</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group1" type="radio" id="test3" />
+      <label for="test3">Green</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test4" disabled="disabled"/>
+      <label for="test4">Brown</label>
+    </p>
+    </div>
+    </div>`
+              }, {
+                  id: 'checkbox',
+                  label: 'Checkbox',
+                  category: 'Form',
+                  attributes: {
+                      class: 'fa fa-check-square-o'
+                  },
+                  content: `<div class="row">
+        <div class="input-field col s12">
+    <p>
+      <input type="checkbox" id="test5" />
+      <label for="test5">Red</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test6" checked="checked" />
+      <label for="test6">Yellow</label>
+    </p>
+    </div>
+    </div>`
+               }, {
                   id: 'map',
                   label: 'Map',
                   category: 'Extra',
@@ -807,7 +1019,17 @@ $('ul.tabs').tabs();
                     }
                 ],
       },
-
+ storageManager: {
+            id: 'gjs-',
+            type: 'local',
+            autosave: 1,
+            autoload: 1,
+            stepsBeforeSave: 1,
+            storeComponents: 1,
+            storeStyles: 1,
+            storeHtml: 1,
+            storeCss: 1,
+        },
       styleManager: {
           sectors: [{
                   name: 'General',
@@ -1069,18 +1291,78 @@ $('ul.tabs').tabs();
               title: 'Empty canvas'
           }
             },
-//            {
-//          id: 'open-github',
-//          className: 'fa fa-link',
-//          command: function (editor, sender) {
-//              sender.set('active', 0);
-//              window.open('https://github.com/artf/grapesjs', '_blank');
-//          },
-//          attributes: {
-//              title: 'github'
-//          }
-//            }
+      {
+          id: 'import',
+          className: 'fa fa-edit',
+          command: 'html-edit',
+          attributes: {
+              title: 'Import'
+          }
+        },
+      {
+          id: 'open-github',
+          className: 'fa fa-link',
+          command: function (editor, sender) {
+              sender.set('active', 0);
+              window.open('https://github.com/ronaldaug/gramateria', '_blank');
+          },
+          attributes: {
+              title: 'github'
+          }
+            }
         ]);
+
+  var pfx = editor.getConfig().stylePrefix;
+  var modal = editor.Modal;
+  var cmdm = editor.Commands;
+  var codeViewer = editor.CodeManager.getViewer('CodeMirror').clone();
+  var pnm = editor.Panels;
+  var container = document.createElement('div');
+  var btnEdit = document.createElement('button');
+
+  codeViewer.set({
+      codeName: 'htmlmixed',
+      readOnly: 0,
+      theme: 'hopscotch',
+      autoBeautify: true,
+      autoCloseTags: true,
+      autoCloseBrackets: true,
+      lineWrapping: true,
+      styleActiveLine: true,
+      smartIndent: true,
+      indentWithTabs: true
+  });
+
+  btnEdit.innerHTML = '<h2><i class="fa fa-upload"></i> Import</h2>';
+  btnEdit.className = pfx + 'btn-prim ' + pfx + 'btn-import';
+  btnEdit.onclick = function () {
+      var code = codeViewer.editor.getValue();
+      editor.DomComponents.getWrapper().set('content', '');
+      editor.setComponents(code.trim());
+      modal.close();
+  };
+
+  cmdm.add('html-edit', {
+      run: function (editor, sender) {
+          sender && sender.set('active', 0);
+          var viewer = codeViewer.editor;
+          modal.setTitle('Import codes');
+          if (!viewer) {
+              var txtarea = document.createElement('textarea');
+              container.appendChild(txtarea);
+              container.appendChild(btnEdit);
+              codeViewer.init(txtarea);
+              viewer = codeViewer.editor;
+          }
+          var InnerHtml = editor.getHtml();
+          var Css = editor.getCss();
+          modal.setContent('');
+          modal.setContent(container);
+          codeViewer.setContent(InnerHtml + "<style>" + Css + '</style>');
+          modal.open();
+          viewer.refresh();
+      }
+  });
 
   editor.BlockManager.getCategories().each(ctg => ctg.set('open', false))
   var bm = editor.BlockManager;
@@ -1117,13 +1399,15 @@ $('ul.tabs').tabs();
   //          }),
   //        });
 
-
+  
   editor.on('storage:load', function (e) {
       console.log('LOAD ', e);
   })
   editor.on('storage:store', function (e) {
       console.log('STORE ', e);
   })
+
+
 
   editor.on('styleManager:change:text-shadow', function (view) {
       var model = view.model;
