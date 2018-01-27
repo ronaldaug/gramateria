@@ -14,7 +14,7 @@ https://www.gramateria.com
 
 Added 
 - form elements
-- import feature
+- import HTML/CSS
 - auto save
 - dropdown navbar
 
