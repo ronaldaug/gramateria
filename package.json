@@ -1,27 +1,22 @@
+
 {
-  "name": "Gramateria",
-  "version": "1.0.1",
+  "name": "gramateria",
+  "version": "1.0.0",
   "private": true,
-  "description": "Gramateria - a drag and drop materialize css design web builder",
+  "description": "Open source drag and drop website builder",
   "main": "index.js",
   "scripts": {
     "start": "electron index.js",
-    "package": "",
-    "build": "electron-packager . Gramateria"
+    "build": "electron-packager . gramateria --overwrite"
   },
   "keywords": [
-    "gramteria",
-    "web",
-    "website",
-    "material",
-    "maker",
-    "builder",
-    "generator",
-    "materialize css",
-    "drag and drop",
-    "drag & drop"
+    "Gramateria",
+    "gramateria",
+    "grapes",
+    "materialize",
+    "grapgesjs"
   ],
-  "author": "Ronald Aug",
+  "author": "Ronald",
   "license": "MIT",
   "devDependencies": {
     "asar": "^0.13.0",
@@ -29,3 +24,5 @@
     "electron-packager": "^1.4.15"
   }
 }
+
+

@@ -1,8 +1,18 @@
 # gramateria
-Drag and drop web builder with material design.  
+Drag and drop web builder with materialize design.  
 https://www.gramateria.com
 
-V 1.0.3
+### Building a desktop app
+
+```npm install```
+
+#### if `npm install` doesn't work try `npm install electron-packager --save-dev`
+
+```npm start```
+
+```npm run build```
+
+### Version 1.0.3
 
 Added 
 - form elements

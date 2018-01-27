@@ -1275,7 +1275,26 @@ $('ul.tabs').tabs();
           attributes: {
               title: 'Redo (CTRL/CMD + SHIFT + Z)'
           }
-            }, {
+            },{
+          id: 'clear-local',
+          className: 'fa fa-close',
+          command: function () {
+              if (confirm('Reset to original?')) {
+                      localStorage.clear();
+              }
+          },
+          attributes: {
+              title: 'Reset'
+          }
+            },
+      {
+          id: 'import',
+          className: 'fa fa-edit',
+          command: 'html-edit',
+          attributes: {
+              title: 'Import'
+          }
+        },{
           id: 'clean-all',
           className: 'fa fa-trash icon-blank',
           command: function (editor, sender) {
@@ -1291,14 +1310,6 @@ $('ul.tabs').tabs();
               title: 'Empty canvas'
           }
             },
-      {
-          id: 'import',
-          className: 'fa fa-edit',
-          command: 'html-edit',
-          attributes: {
-              title: 'Import'
-          }
-        },
       {
           id: 'open-github',
           className: 'fa fa-link',
