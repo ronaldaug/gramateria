@@ -6,8 +6,6 @@ https://www.gramateria.com
 
 ```npm install```
 
-#### if `npm install` doesn't work try `npm install electron-packager --save-dev`
-
 ```npm start```
 
 ```npm run build```
