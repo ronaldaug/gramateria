@@ -1,6 +1,8 @@
 # gramateria
-Drag and drop web builder with materialize design.  
+A drag and drop web builder with materialize design.  
 https://www.gramateria.com
+
+Grapesjs + Materialize = 🔥
 
 ### Building a desktop app
 
@@ -18,5 +20,10 @@ Added
 - auto save
 - dropdown navbar
 
-Show your support by 🌟 the project, thanks.
+### Credit goes to 
+- Grapesjs [Grapes JS](http://www.grapesjs.com/ "Grapes Js")
+- Materialize [Materialize](http://www.materializecss.com/ "Materialize")
+- Electron [Electron JS] (https://electronjs.org/ "Electron Js")
 
+
+Show your support by 🌟 the project, thanks.
