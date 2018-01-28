@@ -23,7 +23,7 @@ Added
 ### Credit goes to 
 - Grapesjs [Grapes JS](http://www.grapesjs.com/ "Grapes Js")
 - Materialize [Materialize](http://www.materializecss.com/ "Materialize")
-- Electron [Eectron JS](http://www.electronjs.org/ "Electron Js")
+- Electron [Electron JS](http://www.electronjs.org/ "Electron Js")
 
 
 Show your support by 🌟 the project, thanks.
