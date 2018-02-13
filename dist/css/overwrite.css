@@ -1,3 +1,31 @@
+
+/* custom css */
+
+/*
+.gjs-devices{
+   display:block; 
+   font:-webkit-small-control;
+   height:auto;
+}
+
+input.gjs-no-app{
+    margin:0;
+    height: auto;
+    font-size:12px;
+}
+*/
+
+.gjs-pn-btn.fa:before,
+.gjs-block.fa:before{
+    color:#000;
+}
+.gjs-block{
+    background:#fff;
+}
+.gjs-blocks-c{
+    padding-bottom:6px;
+}
+
 .gjs-color-warn,.gjs-sm-sector .gjs-sm-field input, .gjs-clm-tags .gjs-sm-field input, .gjs-sm-sector .gjs-clm-field input, .gjs-clm-tags .gjs-clm-field input, .gjs-sm-sector .gjs-sm-field select, .gjs-clm-tags .gjs-sm-field select, .gjs-sm-sector .gjs-clm-field select, .gjs-clm-tags .gjs-clm-field select{
     color:#000;
 }

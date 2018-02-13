@@ -1281,6 +1281,7 @@ $('ul.tabs').tabs();
           command: function () {
               if (confirm('Reset to original?')) {
                       localStorage.clear();
+                      location.reload();
               }
           },
           attributes: {
