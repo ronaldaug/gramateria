@@ -1,13 +1,14 @@
-
 {
   "name": "gramateria",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "private": true,
   "description": "Open source drag and drop website builder",
   "main": "index.js",
   "scripts": {
     "start": "electron index.js",
-    "build": "electron-packager . gramateria --overwrite"
+    "build:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=release-builds",
+    "build:win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=build/icon.ico --out=release-builds --version 1.8.2",
+    "build:lin": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=build/icon.png --prune=true --out=release-builds"
   },
   "keywords": [
     "Gramateria",
@@ -22,7 +23,6 @@
     "asar": "^0.14.2",
     "electron": "^1.8.2",
     "electron-packager": "^11.0.1"
-  }
+  },
+  "dependencies": {}
 }
-
-
