@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "electron index.js",
-    "build:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=release-builds",
-    "build:win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=build/icon.ico --out=release-builds --version 1.8.2",
-    "build:lin": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=build/icon.png --prune=true --out=release-builds"
+    "build:mac": "electron-packager . Gramateria --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=release-builds",
+    "build:win": "electron-packager . Gramateria --overwrite --platform=win32 --arch=x64 --icon=build/icon.ico --out=release-builds --version 1.8.2",
+    "build:lin": "electron-packager . Gramateria --overwrite --asar=true --platform=linux --arch=x64 --icon=build/icon.png --prune=true --out=release-builds"
   },
   "keywords": [
     "Gramateria",
