@@ -14,7 +14,7 @@
             ],
       pluginsOpts: {
           'gjs-plugin-export': {
-              btnLabel: ' Download Zip',
+              btnLabel: 'Download Zip',
               preHtml: `<!doctype html>
                         <html>
                         <head>
@@ -32,14 +32,9 @@
           }
       },
       canvas: {
-          styles: ['dist/css/roboto.css', 'dist/css/material.css', 'dist/css/materialize.min.css'],
-          scripts: ['dist/js/jquery.min.js', 'dist/js/materialize.min.js', 'dist/js/main.js']
+          styles: ['https://fonts.googleapis.com/css?family=Roboto', 'https://fonts.googleapis.com/icon?family=Material+Icons', 'dist/css/materialize.min.css'],
+          scripts: ['dist/js/jquery.min.js', 'dist/js/materialize.min.js']
       },
-      storageManager: {
-          type: 'none',
-          autoload: 0
-      },
-
       commands: {
           defaults: [
 //              {
@@ -1019,17 +1014,17 @@ $('ul.tabs').tabs();
                     }
                 ],
       },
- storageManager: {
-            id: 'gjs-',
-            type: 'local',
-            autosave: 1,
-            autoload: 1,
-            stepsBeforeSave: 1,
-            storeComponents: 1,
-            storeStyles: 1,
-            storeHtml: 1,
-            storeCss: 1,
-        },
+      storageManager: {
+          id: 'gjs-',
+          type: 'local',
+          autosave: 1,
+          autoload: 1,
+          stepsBeforeSave: 1,
+          storeComponents: 1,
+          storeStyles: 1,
+          storeHtml: 1,
+          storeCss: 1,
+      },
       styleManager: {
           sectors: [{
                   name: 'General',
@@ -1275,13 +1270,13 @@ $('ul.tabs').tabs();
           attributes: {
               title: 'Redo (CTRL/CMD + SHIFT + Z)'
           }
-            },{
+            }, {
           id: 'clear-local',
           className: 'fa fa-close',
           command: function () {
               if (confirm('Reset to original?')) {
-                      localStorage.clear();
-                      location.reload();
+                  localStorage.clear();
+                  location.reload();
               }
           },
           attributes: {
@@ -1295,7 +1290,7 @@ $('ul.tabs').tabs();
           attributes: {
               title: 'Import'
           }
-        },{
+        }, {
           id: 'clean-all',
           className: 'fa fa-trash icon-blank',
           command: function (editor, sender) {
@@ -1411,7 +1406,7 @@ $('ul.tabs').tabs();
   //          }),
   //        });
 
-  
+
   editor.on('storage:load', function (e) {
       console.log('LOAD ', e);
   })
