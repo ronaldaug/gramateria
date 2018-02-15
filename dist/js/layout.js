@@ -1360,33 +1360,43 @@ $('ul.tabs').tabs();
       modal.close();
   };
 
+  function getFileExtension(filename) {
+      var ext = /^.+\.([^.]+)$/.exec(filename);
+      return ext == null ? "" : ext[1];
+  }
+
   loadTxt.onclick = function () {
       var fileToLoad = document.getElementById("fileToLoad").files[0];
-      if (fileToLoad !== undefined){
-      var reader = new FileReader();
-      reader.onload = function (e) {
-          var FileLoaddata = e.target.result;
-          var viewer = codeViewer.editor;
-          modal.setTitle('Import/Edit');
-          if (!viewer) {
-              var txtarea = document.createElement('textarea');
-              container.appendChild(txtarea);
-              container.appendChild(btnEdit);
-              container.appendChild(saveTitle);
-              container.appendChild(fileLoader);
-              container.appendChild(loadTxt);
-              container.appendChild(exportTxt);
-              codeViewer.init(txtarea);
-              viewer = codeViewer.editor;
+      var fType = getFileExtension(fileToLoad['name']);
+      if (fileToLoad === undefined) {
+          alert('Please select a file');
+          return;
+      }
+      if (fType === 'gram' || fType === 'txt') {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              var FileLoaddata = e.target.result;
+              var viewer = codeViewer.editor;
+              modal.setTitle('Import/Edit');
+              if (!viewer) {
+                  var txtarea = document.createElement('textarea');
+                  container.appendChild(txtarea);
+                  container.appendChild(btnEdit);
+                  container.appendChild(saveTitle);
+                  container.appendChild(fileLoader);
+                  container.appendChild(loadTxt);
+                  container.appendChild(exportTxt);
+                  codeViewer.init(txtarea);
+                  viewer = codeViewer.editor;
+              }
+              modal.setContent('');
+              modal.setContent(container);
+              codeViewer.setContent(FileLoaddata);
           }
-          modal.setContent('');
-          modal.setContent(container);
-          codeViewer.setContent(FileLoaddata);
-          }
-      reader.readAsText(fileToLoad);
-    }else{
-        alert('Please select a file');
-    }
+          reader.readAsText(fileToLoad);
+      } else {
+          alert('You can only import .gram or .txt extension');
+      }
   }
 
 
