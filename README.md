@@ -4,13 +4,20 @@ https://www.gramateria.com
 
 Grapesjs + Materialize = 🔥
 
+### Version 1.0.4
+ 
+- Load/save template file
+- Change grapesjs/electron versions
+- Add menus in desktop app
+- Fix copy and paste error in desktop app
+
+
 ### Version 1.0.3
 
-Added 
-- form elements
-- import HTML/CSS
-- auto save
-- dropdown navbar
+- Form elements
+- Import HTML/CSS
+- Auto save
+- Dropdown navbar
 
 
 ### Building a desktop app.
