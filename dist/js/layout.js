@@ -1326,6 +1326,10 @@ $('ul.tabs').tabs();
   var pnm = editor.Panels;
   var container = document.createElement('div');
   var btnEdit = document.createElement('button');
+  var exportTxt = document.createElement('button');
+  var loadTxt = document.createElement('button');
+  var fileLoader = document.createElement('form');
+  var saveTitle = document.createElement('p');
 
   codeViewer.set({
       codeName: 'htmlmixed',
@@ -1340,8 +1344,15 @@ $('ul.tabs').tabs();
       indentWithTabs: true
   });
 
-  btnEdit.innerHTML = '<h2><i class="fa fa-upload"></i> Import</h2>';
+  btnEdit.innerHTML = '<i class="fa fa-upload"></i> Import';
+  exportTxt.innerHTML = '<i class="fa fa-download"></i> Save as file';
+  loadTxt.innerHTML = '<i class="fa fa-upload"></i> Load file';
+  fileLoader.innerHTML = '<input type="file" id="fileToLoad">';
+  saveTitle.innerHTML = '<hr>';
+  fileLoader.className = pfx + 'import-file';
   btnEdit.className = pfx + 'btn-prim ' + pfx + 'btn-import';
+  exportTxt.className = pfx + 'btn-prim ' + pfx + 'btn-export';
+  loadTxt.className = pfx + 'btn-prim ' + pfx + 'btn-load';
   btnEdit.onclick = function () {
       var code = codeViewer.editor.getValue();
       editor.DomComponents.getWrapper().set('content', '');
@@ -1349,15 +1360,71 @@ $('ul.tabs').tabs();
       modal.close();
   };
 
-  cmdm.add('html-edit', {
-      run: function (editor, sender) {
-          sender && sender.set('active', 0);
+  loadTxt.onclick = function () {
+      var fileToLoad = document.getElementById("fileToLoad").files[0];
+      if (fileToLoad !== undefined){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          var FileLoaddata = e.target.result;
           var viewer = codeViewer.editor;
-          modal.setTitle('Import codes');
+          modal.setTitle('Import/Edit');
           if (!viewer) {
               var txtarea = document.createElement('textarea');
               container.appendChild(txtarea);
               container.appendChild(btnEdit);
+              container.appendChild(saveTitle);
+              container.appendChild(fileLoader);
+              container.appendChild(loadTxt);
+              container.appendChild(exportTxt);
+              codeViewer.init(txtarea);
+              viewer = codeViewer.editor;
+          }
+          modal.setContent('');
+          modal.setContent(container);
+          codeViewer.setContent(FileLoaddata);
+          }
+      reader.readAsText(fileToLoad);
+    }else{
+        alert('Please select a file');
+    }
+  }
+
+
+  exportTxt.onclick = function exTxt() {
+      var fileName = prompt("Enter the file name", "filename");
+      var InnerHtml = editor.getHtml();
+      var Css = editor.getCss();
+      var text = InnerHtml + "<style>" + Css + '</style>';
+      var blob = new Blob([text], {
+          type: "text/plain"
+      });
+      var anchor = document.createElement("a");
+      if (fileName.length) {
+          anchor.download = fileName + ".gram";
+      } else {
+          anchor.download = "1.gram";
+      }
+      anchor.href = window.URL.createObjectURL(blob);
+      anchor.target = "_blank";
+      anchor.style.display = "none"; // just to be safe!
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+  }
+
+  cmdm.add('html-edit', {
+      run: function importArea(editor, sender) {
+          sender && sender.set('active', 0);
+          var viewer = codeViewer.editor;
+          modal.setTitle('Import/Edit');
+          if (!viewer) {
+              var txtarea = document.createElement('textarea');
+              container.appendChild(txtarea);
+              container.appendChild(btnEdit);
+              container.appendChild(saveTitle);
+              container.appendChild(fileLoader);
+              container.appendChild(loadTxt);
+              container.appendChild(exportTxt);
               codeViewer.init(txtarea);
               viewer = codeViewer.editor;
           }

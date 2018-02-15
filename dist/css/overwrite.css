@@ -29,4 +29,25 @@ input.gjs-no-app{
 .gjs-color-warn,.gjs-sm-sector .gjs-sm-field input, .gjs-clm-tags .gjs-sm-field input, .gjs-sm-sector .gjs-clm-field input, .gjs-clm-tags .gjs-clm-field input, .gjs-sm-sector .gjs-sm-field select, .gjs-clm-tags .gjs-sm-field select, .gjs-sm-sector .gjs-clm-field select, .gjs-clm-tags .gjs-clm-field select{
     color:#000;
 }
-
+.gjs-btn-export,
+.gjs-btn-load{
+    font-size:14px;
+}
+.gjs-btn-export{
+    float:right;
+}
+.gjs-btn-import:hover{
+    margin-top:15px;
+    margin-bottom:1px;
+    transition:all ease-in-out 0.4s;
+    -webkit-transition:all ease-in-out 0.4s;
+    -moz-transition:all ease-in-out 0.4s;
+}
+.gjs-btn-import{
+    box-shadow: 1px 2px 10px rgba(116,116,116,0.33);
+    font-size: 16px;
+    border-radius: 30px;
+    background: #fff;
+    padding: 4px 20px;
+    margin-top: 16px;
+}
