@@ -25,7 +25,9 @@ input.gjs-no-app{
 .gjs-blocks-c{
     padding-bottom:6px;
 }
-
+.gjs-field input, .gjs-field select, .gjs-field textarea{
+    padding:0;
+}
 .gjs-color-warn,.gjs-sm-sector .gjs-sm-field input, .gjs-clm-tags .gjs-sm-field input, .gjs-sm-sector .gjs-clm-field input, .gjs-clm-tags .gjs-clm-field input, .gjs-sm-sector .gjs-sm-field select, .gjs-clm-tags .gjs-sm-field select, .gjs-sm-sector .gjs-clm-field select, .gjs-clm-tags .gjs-clm-field select{
     color:#000;
 }
@@ -50,4 +52,41 @@ input.gjs-no-app{
     background: #fff;
     padding: 4px 20px;
     margin-top: 16px;
+}
+
+.modelPopup input[type="text"]{
+    height:20px;
+}
+.modelPopup{
+   z-index:99999;
+   position:fixed;
+   top:-20%;
+   left:50%;
+   margin-left:-100px;
+   width:200px;
+   background:#fff;
+   padding:20px;
+   height:auto;
+   text-align:center;
+   opacity:0;
+   box-shadow:0 10px 300px rgba(116,116,116,0.80);
+   -moz-box-shadow:0 10px 300px rgba(116,116,116,0.80);
+   -webkit-box-shadow:0 10px 300px rgba(116,116,116,0.80);
+   visibility: hidden;
+    transition:all ease-in-out 0.4s;
+    -webkit-transition:all ease-in-out 0.4s;
+    -moz-transition:all ease-in-out 0.4s;
+}
+.modelPopup.showup{
+   top:20% !important;
+   opacity:1 !important;
+   visibility: visible !important;
+}
+
+button.exportgram{
+  margin-left:10px;
+  padding:4px 10px;
+  background:#444;
+  color:#fff;
+  border-radius:20px;
 }

@@ -1329,8 +1329,7 @@ $('ul.tabs').tabs();
   var exportTxt = document.createElement('button');
   var loadTxt = document.createElement('button');
   var fileLoader = document.createElement('form');
-  var saveTitle = document.createElement('p');
-
+  var saveTitle = document.createElement('div');
   codeViewer.set({
       codeName: 'htmlmixed',
       readOnly: 0,
@@ -1347,8 +1346,9 @@ $('ul.tabs').tabs();
   btnEdit.innerHTML = '<i class="fa fa-upload"></i> Import';
   exportTxt.innerHTML = '<i class="fa fa-download"></i> Save as file';
   loadTxt.innerHTML = '<i class="fa fa-upload"></i> Load file';
-  fileLoader.innerHTML = '<input type="file" id="fileToLoad">';
-  saveTitle.innerHTML = '<hr>';
+  fileLoader.innerHTML = '<br><hr color="#ddd"><br><input type="file" id="fileToLoad"><br><br>';
+  saveTitle.className = 'modelPopup';
+  saveTitle.innerHTML = '<input id="file_name" value="" type="text" placeholder="Enter file Name" name="filename"><button class="exportgram" onclick="exportgramfile()">Save</button>';
   fileLoader.className = pfx + 'import-file';
   btnEdit.className = pfx + 'btn-prim ' + pfx + 'btn-import';
   exportTxt.className = pfx + 'btn-prim ' + pfx + 'btn-export';
@@ -1360,8 +1360,8 @@ $('ul.tabs').tabs();
       modal.close();
   };
 
-  function getFileExtension(filename) {
-      var ext = /^.+\.([^.]+)$/.exec(filename);
+  function getFileExtension(fname) {
+      var ext = /^.+\.([^.]+)$/.exec(fname);
       return ext == null ? "" : ext[1];
   }
 
@@ -1399,28 +1399,35 @@ $('ul.tabs').tabs();
       }
   }
 
-
-  exportTxt.onclick = function exTxt() {
-      var fileName = prompt("Enter the file name", "filename");
-      var InnerHtml = editor.getHtml();
-      var Css = editor.getCss();
-      var text = InnerHtml + "<style>" + Css + '</style>';
-      var blob = new Blob([text], {
-          type: "text/plain"
-      });
+  function exportgramfile() {
       var anchor = document.createElement("a");
-      if (fileName.length) {
+      var fileName = document.getElementById("file_name").value;
+      if (fileName !== undefined && fileName !== '') {
+          var InnerHtml = editor.getHtml();
+          var Css = editor.getCss();
+          var text = InnerHtml + "<style>" + Css + '</style>';
+          var blob = new Blob([text], {
+              type: "text/plain"
+          });
           anchor.download = fileName + ".gram";
+          anchor.href = window.URL.createObjectURL(blob);
+          anchor.target = "_blank";
+          anchor.style.display = "none"; // just to be safe!
+          document.body.appendChild(anchor);
+          anchor.click();
+          document.body.removeChild(anchor);
       } else {
-          anchor.download = "1.gram";
+          alert('Please type a file name');
+          return;
       }
-      anchor.href = window.URL.createObjectURL(blob);
-      anchor.target = "_blank";
-      anchor.style.display = "none"; // just to be safe!
-      document.body.appendChild(anchor);
-      anchor.click();
-      document.body.removeChild(anchor);
   }
+
+
+  exportTxt.onclick = function(){
+      var pmodel = document.getElementsByClassName("modelPopup");
+      pmodel[0].className += " " + 'showup';
+  }
+
 
   cmdm.add('html-edit', {
       run: function importArea(editor, sender) {

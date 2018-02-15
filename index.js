@@ -68,6 +68,7 @@ function createWindow() {
         }
     ];
     Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+    
     // Create the browser window.
     win = new BrowserWindow({
         'node-integration': false,
