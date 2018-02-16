@@ -10,6 +10,7 @@ Grapesjs + Materialize = 🔥
 - Change grapesjs/electron versions
 - Add menus in desktop app
 - Fix copy and paste error in desktop app
+- Prompt to model popup
 
 
 ### Version 1.0.3

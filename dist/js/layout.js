@@ -1405,6 +1405,7 @@ $('ul.tabs').tabs();
       if (fileName !== undefined && fileName !== '') {
           var InnerHtml = editor.getHtml();
           var Css = editor.getCss();
+          var pmodel = document.getElementsByClassName("modelPopup");
           var text = InnerHtml + "<style>" + Css + '</style>';
           var blob = new Blob([text], {
               type: "text/plain"
@@ -1416,6 +1417,7 @@ $('ul.tabs').tabs();
           document.body.appendChild(anchor);
           anchor.click();
           document.body.removeChild(anchor);
+          pmodel[0].className = "pmodel";
       } else {
           alert('Please type a file name');
           return;
