@@ -1417,7 +1417,7 @@ $('ul.tabs').tabs();
           document.body.appendChild(anchor);
           anchor.click();
           document.body.removeChild(anchor);
-          pmodel[0].className = "pmodel";
+          pmodel[0].className = "modelPopup";
       } else {
           alert('Please type a file name');
           return;
