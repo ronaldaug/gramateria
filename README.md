@@ -24,7 +24,7 @@ Grapesjs + Materialize = 🔥
 
 ###### 3 - Add example HTML into body tag
 ```
-<div id="gjs" style="height:0px; overflow:hidden;">
+<div id="gjs">
  <div class="row">
     <div class="col m12">
     <h1>Hello world!</h1>
