@@ -36,6 +36,8 @@ Grapesjs + Materialize = 🔥
 </div>
 ```
 
+###### [example on codepen.io](https://codepen.io/ronaldaug/pen/yKPzWP "example on codepen.io")
+
 ### Version 1.0.4
  
 - Load/save template file
