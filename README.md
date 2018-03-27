@@ -15,7 +15,7 @@ Grapesjs + Materialize = 🔥
 <script src="https://cdn.rawgit.com/artf/grapesjs-plugin-export/master/dist/grapesjs-plugin-export.min.js"></script>
 
 ```
-###### 2 - Add gramateria at the bottom of the page
+###### 2 - Add gramateria at the bottom of the page ( before ```</body>``` tag )
 ```
 <!-- gramateria -->
 <link rel="stylesheet" href="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.css">
