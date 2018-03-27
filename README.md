@@ -5,39 +5,6 @@ https://www.gramateria.com
 Grapesjs + Materialize = 🔥
 
 
-### Include gramateria in your page 
-
-###### 1 - Add grapesjs in head tag
-```
-<!-- grapesjs -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.14.6/css/grapes.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.14.6/grapes.min.js"></script>
-<script src="https://cdn.rawgit.com/artf/grapesjs-plugin-export/master/dist/grapesjs-plugin-export.min.js"></script>
-
-```
-###### 2 - Add gramateria at the bottom of the page ( before ```</body>``` tag )
-```
-<!-- gramateria -->
-<link rel="stylesheet" href="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.css">
-<script src="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.js"></script>
-```
-
-###### 3 - Add example HTML into body tag
-```
-<div id="gjs">
- <div class="row">
-    <div class="col m12">
-    <h1>Hello world!</h1>
-    <br/>
-    <a href="https://www.gramateria.com" class="link">www.gramateria.com</a>
-    </div>
-</div>
-<style></style>
-</div>
-```
-
-###### [example on codepen.io](https://codepen.io/ronaldaug/pen/yKPzWP "example on codepen.io")
-
 ### Version 1.0.4
  
 - Load/save template file
@@ -71,6 +38,41 @@ Grapesjs + Materialize = 🔥
 ```npm run build:win```
 ##### Linux
 ```npm run build:lin```
+
+
+### Include gramateria in your page 
+
+###### 1 - Add grapesjs in head tag
+```
+<!-- grapesjs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.14.6/css/grapes.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.14.6/grapes.min.js"></script>
+<script src="https://cdn.rawgit.com/artf/grapesjs-plugin-export/master/dist/grapesjs-plugin-export.min.js"></script>
+
+```
+###### 2 - Add gramateria at the bottom of the page ( before ```</body>``` tag )
+```
+<!-- gramateria -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.css">
+<script src="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.js"></script>
+```
+
+###### 3 - Add example HTML into body tag
+```
+<div id="gjs">
+ <div class="row">
+    <div class="col m12">
+    <h1>Hello world!</h1>
+    <br/>
+    <a href="https://www.gramateria.com" class="link">www.gramateria.com</a>
+    </div>
+</div>
+<style></style>
+</div>
+```
+
+###### [Example on codepen.io](https://codepen.io/ronaldaug/pen/yKPzWP "Example on codepen.io")
+
 
 ### Credit goes to 
 - Grapesjs [Grapes JS](http://www.grapesjs.com/ "Grapes Js")
