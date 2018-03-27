@@ -4,6 +4,34 @@ https://www.gramateria.com
 
 Grapesjs + Materialize = 🔥
 
+
+### Include gramateria in your page 
+
+```
+<!-- grapesjs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.14.6/css/grapes.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.14.6/grapes.min.js"></script>
+<script src="https://cdn.rawgit.com/artf/grapesjs-plugin-export/master/dist/grapesjs-plugin-export.min.js"></script>
+
+<!-- gramateria -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.css">
+<script src="https://cdn.rawgit.com/ronaldaug/gramateria/master/dist/gramateria/gram.min.js"></script>
+```
+
+###### Add example HTML into body tag
+```
+<div id="gjs" style="height:0px; overflow:hidden;">
+ <div class="row">
+    <div class="col m12">
+    <h1>Hello world!</h1>
+    <br/>
+    <a href="https://www.gramateria.com" class="link">www.gramateria.com</a>
+    </div>
+</div>
+<style></style>
+</div>
+```
+
 ### Version 1.0.4
  
 - Load/save template file
