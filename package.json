@@ -20,9 +20,9 @@
   "author": "Ronald",
   "license": "MIT",
   "devDependencies": {
-    "asar": "^0.14.2",
-    "electron": "^1.8.4",
-    "electron-packager": "^11.0.1"
+    "asar": "^0.14.3",
+    "electron": "^1.8.6",
+    "electron-packager": "^11.2.0"
   },
   "dependencies": {}
 }
