@@ -21,7 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "asar": "^0.14.3",
-    "electron": "^1.8.6",
+    "electron": "^1.8.7",
     "electron-packager": "^11.2.0"
   },
   "dependencies": {}
