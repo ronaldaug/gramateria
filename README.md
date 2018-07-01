@@ -4,6 +4,18 @@ https://www.gramateria.com
 
 Grapesjs + Materialize = 🔥
 
+[Try Gramateria dashboard (Beta)](https://app.gramateria.com "Example on codepen.io")
+
+
+### Version 1.0.5
+
+- Add more sections ( Blog, Members, Grids )
+- Change two code viewers into one
+- Change Design and Icons
+- Clear CSS codes for components
+- Start Gramateria dashboard (Beta)
+- Add copy HTML/CSS button in editor
+
 
 ### Version 1.0.4
  
