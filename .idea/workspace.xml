@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5be47684-2c1d-43bd-927c-9e6509bdc610" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/gramateria/develop/gramateria.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gramateria/develop/gramateria.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/gramateria/gram.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gramateria/gram.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/gramateria/test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,20 +18,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3486">
-              <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/gramateria/test.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="88" column="1" selection-end-line="93" />
+            <state relative-caret-position="416">
+              <caret line="167" column="40" selection-start-line="167" selection-start-column="40" selection-end-line="167" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,17 +33,17 @@
       <file leaf-file-name="gramateria.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6447">
+            <state relative-caret-position="21">
               <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gramateria.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gramateria.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="1438" column="40" selection-end-line="1792" />
+            <state relative-caret-position="395">
+              <caret line="1475" column="6" lean-forward="true" selection-start-line="1475" selection-start-column="6" selection-end-line="1475" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -52,8 +51,17 @@
       <file leaf-file-name="gram.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/gramateria/gram.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1029">
-              <caret column="49002" selection-start-column="49002" selection-end-column="49002" />
+            <state relative-caret-position="100">
+              <caret column="49136" selection-start-column="49136" selection-end-column="49136" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -71,8 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btnZip</find>
-      <find>fileData</find>
       <find>txtarea</find>
       <find>codeView</find>
       <find>viewer</find>
@@ -101,6 +107,8 @@
       <find>#myform</find>
       <find>hello</find>
       <find>Import</find>
+      <find>development</find>
+      <find>styleMana</find>
     </findStrings>
     <replaceStrings>
       <replace>copyHtml</replace>
@@ -117,9 +125,10 @@
         <option value="$PROJECT_DIR$/dist/grapesjs/grapes.min.css" />
         <option value="$PROJECT_DIR$/dist/gramateria/gram.min.css" />
         <option value="$PROJECT_DIR$/dist/gramateria/test.css" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/dist/gramateria/gram.min.js" />
         <option value="$PROJECT_DIR$/dist/gramateria/develop/gramateria.js" />
+        <option value="$PROJECT_DIR$/dist/gramateria/gram.min.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -222,30 +231,31 @@
       <workItem from="1530416861111" duration="1408000" />
       <workItem from="1530422005499" duration="45000" />
       <workItem from="1530422851244" duration="9000" />
+      <workItem from="1530505175570" duration="1201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15904000" />
+    <option name="totallyTimeSpent" value="17105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -261,6 +271,51 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3486">
+          <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/test.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="88" column="1" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6447">
+          <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/gram.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1029">
+          <caret column="49002" selection-start-column="49002" selection-end-column="49002" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/gram.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="55" selection-start-column="55" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30198">
+          <caret line="1438" column="40" selection-end-line="1792" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3486">
@@ -388,12 +443,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/grapesjs/plugins/grapesjs-plugin-links.js" />
-    <entry file="file://$USER_HOME$/Desktop/test/grapesjs_template_1530335494556/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/test/grapesjs_template_1530344717375/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/test/grapesjs_template_1530335494556/index.html" />
+    <entry file="file://$USER_HOME$/Desktop/test/grapesjs_template_1530344717375/index.html" />
     <entry file="file://$PROJECT_DIR$/dist/grapesjs/grapes.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -404,31 +455,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6447">
-          <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/gramateria/test.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1848">
           <caret line="88" column="1" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3486">
-          <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/gramateria/gram.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret column="49002" selection-start-column="49002" selection-end-column="49002" />
         </state>
       </provider>
     </entry>
@@ -439,10 +469,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dist/gramateria/develop/gramateria.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="1438" column="40" selection-end-line="1792" />
+        <state relative-caret-position="395">
+          <caret line="1475" column="6" lean-forward="true" selection-start-line="1475" selection-start-column="6" selection-end-line="1475" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/gramateria/gram.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret column="49136" selection-start-column="49136" selection-end-column="49136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="167" column="40" selection-start-line="167" selection-start-column="40" selection-end-line="167" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
