@@ -325,7 +325,8 @@ var editor = grapesjs.init({
                 content: `<div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">
                 <div class="col m12" data-gjs-draggable=".row" data-gjs-custom-name="col12"></div>
               </div><style>.col:empty{display:table-cell;height:75px}</style>`
-            }, {
+            },
+            {
                 id: 'b2',
                 label: '2 Blocks',
                 category: 'Grid',
@@ -336,7 +337,8 @@ var editor = grapesjs.init({
                 <div class="col m6" data-gjs-draggable=".row" data-gjs-custom-name="m6"></div>
                 <div class="col m6" data-gjs-draggable=".row" data-gjs-custom-name="m6"></div>
               </div><style>.col:empty{display:table-cell;height:75px}</style>`
-            }, {
+            },
+            {
                 id: 'b3',
                 label: '3 Blocks',
                 category: 'Grid',

@@ -20,6 +20,9 @@ Grapesjs + Materialize = 🔥
 ##### Mac
 ```npm run build:mac```
 
+##### Linux
+```npm run build:lin```
+
 
 ### Credit goes to 
 - Grapesjs [Grapes JS](http://www.grapesjs.com/ "Grapes Js")
