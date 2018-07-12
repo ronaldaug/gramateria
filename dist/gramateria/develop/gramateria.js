@@ -324,7 +324,7 @@ var editor = grapesjs.init({
                 },
                 content: `<div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">
                 <div class="col m12" data-gjs-draggable=".row" data-gjs-custom-name="col12"></div>
-              </div>`
+              </div><style>.col:empty{display:table-cell;height:75px}</style>`
             }, {
                 id: 'b2',
                 label: '2 Blocks',
@@ -335,7 +335,7 @@ var editor = grapesjs.init({
                 content: `<div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">
                 <div class="col m6" data-gjs-draggable=".row" data-gjs-custom-name="m6"></div>
                 <div class="col m6" data-gjs-draggable=".row" data-gjs-custom-name="m6"></div>
-              </div>`
+              </div><style>.col:empty{display:table-cell;height:75px}</style>`
             }, {
                 id: 'b3',
                 label: '3 Blocks',
@@ -347,7 +347,7 @@ var editor = grapesjs.init({
                 + '<div class="col s6 m4" data-gjs-draggable=".row" data-gjs-custom-name="m4"></div>'
                 + '<div class="col s6 m4" data-gjs-draggable=".row" data-gjs-custom-name="m4"></div>'
                 + '<div class="col s6 m4" data-gjs-draggable=".row" data-gjs-custom-name="m4"></div>'
-                + '</div>',
+                + '</div><style>.col:empty{display:table-cell;height:75px}</style>',
             },
             {
                 id: 'b4',
@@ -361,7 +361,7 @@ var editor = grapesjs.init({
                 + '<div class="col s6 m3" data-gjs-draggable=".row" data-gjs-custom-name="m3"></div>'
                 + '<div class="col s6 m3" data-gjs-draggable=".row" data-gjs-custom-name="m3"></div>'
                 + '<div class="col s6 m3" data-gjs-draggable=".row" data-gjs-custom-name="m3"></div>'
-                + '</div>',
+                + '</div><style>.col:empty{display:table-cell;height:75px}</style>',
             },
             {
                 id: 'b5',
@@ -373,7 +373,7 @@ var editor = grapesjs.init({
                 content: '<div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">'
                 + '<div class="col m4" data-gjs-draggable=".row" data-gjs-custom-name="m4"></div>'
                 + '<div class="col m8" data-gjs-draggable=".row" data-gjs-custom-name="m8"></div>'
-                + '</div>',
+                + '</div><style>.col:empty{display:table-cell;height:75px}</style>',
             },
             {
                 id: 'b6',
@@ -385,7 +385,7 @@ var editor = grapesjs.init({
                 content: '<div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">'
                 + '<div class="col m5" data-gjs-draggable=".row" data-gjs-custom-name="m5"></div>'
                 + '<div class="col m7" data-gjs-draggable=".row" data-gjs-custom-name="m7"></div>'
-                + '</div>',
+                + '</div><style>.col:empty{display:table-cell;height:75px}</style>',
             },
             {
                 id: 'b7',
@@ -397,7 +397,7 @@ var editor = grapesjs.init({
                 content: '<div class="row" data-gjs-droppable=".cell" data-gjs-custom-name="Row">'
                 + '<div class="col m3" data-gjs-draggable=".row" data-gjs-custom-name="m3"></div>'
                 + '<div class="col m9" data-gjs-draggable=".row" data-gjs-custom-name="m9"></div>'
-                + '</div>',
+                + '</div><style>.col:empty{display:table-cell;height:75px}</style>',
             },
             {
                 id: 'b8',
@@ -1578,36 +1578,6 @@ var gra = {
         }
     }
 }
-
-// var OrgCodeViewer = editor.CodeManager.getViewer('CodeMirror');
-// OrgCodeViewer.set({
-//     readOnly: 0,
-// })
-// var btnSave = document.createElement("BUTTON");
-// var comName = 'gjs-save';
-//
-// btnSave.innerHTML = ' Apply';
-// btnSave.classList.add('fa','fa-save','btn-save');
-//
-// if (btnSave) {
-//     editor.on('run:export-template', () => {
-//         editor.Modal.getContentEl().appendChild(btnSave);
-//         var html = editor.runCommand('gjs-get-inlined-html');
-//         console.log(html);
-//         btnSave.onclick = () => {
-//             editor.runCommand(comName);
-//         };
-//     });
-// }
-// editor.Commands.add(comName, {
-//     run() {
-//         var code = OrgCodeViewer.editor.getHtml();
-//         editor.DomComponents.getWrapper().set('content', '');
-//         editor.setComponents(code.trim());
-//         modal.close();
-//     }
-// })
-
 
 var pmodel = gra._d("modelPopup", "class");
 var pfx = editor.getConfig().stylePrefix;
