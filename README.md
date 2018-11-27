@@ -1,10 +1,9 @@
 # gramateria
 A drag and drop web builder with materialize design.  
-https://www.gramateria.com
 
 Grapesjs + Materialize = 🔥
 
-[Try Gramateria dashboard (Beta)](https://app.gramateria.com "Example on codepen.io")
+[Try Gramateria dashboard (Beta)](https://gramateria.github.io "Gramateria dashboard")
 
 
 ### Building a desktop app.
@@ -24,9 +23,17 @@ Grapesjs + Materialize = 🔥
 ```npm run build:lin```
 
 
+### Tutorials
+[Watch tutorials](https://www.youtube.com/watch?v=KNUIprEQm8M&index=2&list=PLuK4uSiMBzdleiFDbc5HtLgYNTGxxH7IZ)
+
+
 ### Credit goes to 
 - Grapesjs [Grapes JS](http://www.grapesjs.com/ "Grapes Js")
 - Materialize [Materialize](http://www.materializecss.com/ "Materialize")
 - Electron [Electron JS](http://www.electronjs.org/ "Electron Js")
 
 Show your support by 🌟 the project, thanks.
+
+----
+
+[Buy Me a coffee](https://www.buymeacoffee.com/ronaldaug)
