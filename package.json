@@ -24,5 +24,7 @@
     "electron": "^1.8.8",
     "electron-packager": "^11.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "hoek": "^6.0.4"
+  }
 }
