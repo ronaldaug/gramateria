@@ -3,9 +3,6 @@ A drag and drop web builder with materialize design.
 
 Grapesjs + Materialize = 🔥
 
-[Try Gramateria dashboard (Beta)](https://gramateria.github.io "Gramateria dashboard")
-
-
 ### Building a desktop app.
 
 `Note: You can use Gramateria by opening index.html file with Chrome browser and it works exactly the same as Desktop app.` 

@@ -1,30 +1,60 @@
 {
   "name": "gramateria",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "description": "Open source drag and drop website builder",
   "main": "index.js",
   "scripts": {
+    "gen": "mix",
     "start": "electron index.js",
-    "build:mac": "electron-packager . Gramateria --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=release-builds",
-    "build:win": "electron-packager . Gramateria --overwrite --platform=win32 --arch=x64 --icon=build/icon.ico --out=release-builds --version 1.8.2",
-    "build:lin": "electron-packager . Gramateria --overwrite --asar=true --platform=linux --arch=x64 --icon=build/icon.png --prune=true --out=release-builds"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "keywords": [
     "Gramateria",
     "gramateria",
-    "grapes",
+    "webite",
+    "grapejs",
     "materialize",
-    "grapgesjs"
+    "builder",
+    "drag and drop"
   ],
-  "author": "Ronald",
+  "author": {
+    "name": "Ronald",
+    "email": "info@ronaldaug.work",
+    "url": "https://www.augusthost.com"
+  },
+  "build": {
+    "productName": "gramateria",
+    "appId": "com.augusthost.gramateria",
+    "directories": {
+      "output":"export",
+      "buildResources": "build"
+    },
+    "win": {
+      "asar": false,
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "installerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "deleteAppDataOnUninstall": true
+    }
+  },
   "license": "MIT",
   "devDependencies": {
-    "asar": "^0.14.3",
+    "asar": "^0.14.6",
     "electron": "^9.4.0",
-    "electron-packager": "^11.2.0"
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.35.2",
+    "sass-loader": "^12.1.0",
+    "electron-builder": "^22.10.5"
   },
   "dependencies": {
-    "hoek": "^6.0.4"
+    "laravel-mix": "^6.0.25"
   }
 }
