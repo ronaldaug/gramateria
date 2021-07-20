@@ -8,10 +8,10 @@ mix.disableNotifications()
 
 
 
-const assets_data = [
-    'fonts',
-    'svg'
-]
-for(let asset of assets_data){
-    mix.copyDirectory(`gramateria/develop/${asset}`,`gramateria/dist/${asset}`)
-}
+// const assets_data = [
+//     'fonts',
+//     'svg'
+// ]
+// for(let asset of assets_data){
+//     mix.copyDirectory(`gramateria/develop/${asset}`,`gramateria/dist/${asset}`)
+// }

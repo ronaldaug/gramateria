@@ -4,18 +4,72 @@
 <head>
     <meta charset="utf-8">
     <title>Gramateria</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- styles -->
     <link rel="stylesheet" href="grapesjs/dist/css/grapes.min.css">
     <link rel="stylesheet" href="gramateria/dist/gram.min.css">
+     <style>
+         .spinner-wrapper{
+             transition:all ease 0.4s;
+             position:fixed;
+             top:0;
+             left:0;
+             z-index:999;
+             width:100%;
+             height:100%;
+             display:flex;
+             justify-content: center;
+             align-items: center;
+             background:#ffffffd0;
+         }
+         .spinner-wrapper.hide{
+             opacity:0;
+             visibility: hidden;
+             transform: translateY(-2000px);
+         }
+         .spinner {
+             margin-right:10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #00a5e4;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            -webkit-animation: spin 1s linear infinite;
+        }
 
-    <link rel="shortcut icon" href="favicon.ico" />
-    <script src="grapesjs/dist/grapes.min.js"></script>
-    <!-- <script src="grapesjs/plugins/grapesjs-plugin-export.min.js"></script> -->
+        @keyframes spin {
+        to { 
+            -webkit-transform: rotate(360deg);   }
+        }
+        @-webkit-keyframes spin {
+        to { 
+            -webkit-transform: rotate(360deg);   }
+        }
+     </style>
 </head>
+
 <body>
-<div id="gjs" style="height:0px; overflow:hidden;">
-    <style> </style>
-</div>
-<script src="gramateria/dist/gram.min.js"></script>
+    <div class="spinner-wrapper">
+        <div class="spinner"></div>loading..
+    </div>
+    <div id="gjs" style="height:0px; overflow:hidden;"></div>
+
+    <!-- scripts -->
+    <script src="grapesjs/dist/grapes.min.js"></script>
+    <script src="gramateria/dist/gram.min.js"></script>
+    <script>
+        let spinner_wrapper = document.querySelector(".spinner-wrapper")
+        spinner_wrapper.classList.remove('hide');
+        window.addEventListener('load', () => {
+            setTimeout(()=>{
+                spinner_wrapper.classList.add('hide');
+            },700)
+        })
+    </script>
 </body>
 <!-- Gramateria, a free drag and drop website builder ( www.gramateria.com ) -->
+
 </html>

@@ -134,6 +134,10 @@
   border-color: transparent;
 }
 
+:root {
+  --theme-color:#41dad2;
+}
+
 body,
 html {
   height: 100%;
@@ -209,6 +213,7 @@ html {
   content: "K";
 }
 
+/* Overwrite GrapeJS css */
 .gjs-cm-editor#gjs-cm-css #gjs-cm-title,
 .gjs-cm-editor#gjs-cm-htmlmixed #gjs-cm-title,
 .gjs-two-color,
@@ -217,169 +222,6 @@ html {
   color: #464973;
 }
 
-.gjs-block-category .gjs-blocks-c div[title=Card]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968468/card_urqoco.jpg");
-  background-size: cover;
-  width: 300px;
-  height: 231px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Blog]:after {
-  background-image: url("https://res.cloudinary.com/ronaldaug/image/upload/v1530116427/blog_qrhnhx.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 227px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Starter]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968469/starter_shyx0y.png");
-  background-size: cover;
-  width: 400px;
-  height: 196px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title="Navbar 1"]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968466/nav_he3fot.jpg");
-  background-size: cover;
-  width: 600px;
-  height: 38px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title="Navbar 2"]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968469/nav2_iovg0o.jpg");
-  background-size: cover;
-  width: 600px;
-  height: 129px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Footer]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968467/footer_o8vuik.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 142px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Badges]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968467/badges_hs1ta5.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 154px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Members]:after {
-  background-image: url("https://res.cloudinary.com/ronaldaug/image/upload/v1530275580/members_v2x2tl.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 224px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Slider]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968468/slider_l07ucf.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 154px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Input]:after,
-.gjs-block-category .gjs-blocks-c div[title=Textarea]:after,
-.gjs-block-category .gjs-blocks-c div[title=Radio]:after,
-.gjs-block-category .gjs-blocks-c div[title=Checkbox]:after,
-.gjs-block-category .gjs-blocks-c div[title=Select]:after {
-  content: "Please insert this inside the <form> tag.";
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Radio]:after,
-.gjs-block-category .gjs-blocks-c div[title=Checkbox]:after,
-.gjs-block-category .gjs-blocks-c div[title=Select]:after,
-.gjs-block-category .gjs-blocks-c div[title=Input]:after,
-.gjs-block-category .gjs-blocks-c div[title=Textarea]:after {
-  line-height: 2;
-  position: fixed;
-  top: 0;
-  right: 220px;
-  opacity: 0;
-  z-index: 2;
-  visibility: hidden;
-  transition: all ease-in-out 0.3s;
-  -webkit-transition: all ease-in-out 0.3s;
-  -moz-transition: all ease-in-out 0.3s;
-  width: 300px;
-  height: 44px;
-  font-size: 13px;
-  padding: 10px;
-  background: #ffffff;
-  color: #000;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  box-shadow: 1px 2px 10px rgba(116, 116, 116, 0.3);
-  -moz-box-shadow: 1px 2px 10px rgba(116, 116, 116, 0.3);
-  -webkit-box-shadow: 1px 2px 10px rgba(116, 116, 116, 0.3);
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Radio]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Checkbox]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Select]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Textarea]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Input]:hover:after {
-  top: 30%;
-  opacity: 1;
-  display: block;
-  visibility: visible;
-}
-
-.gjs-block-category .gjs-blocks-c div[title=Parallax]:after {
-  background-image: url("http://res.cloudinary.com/ronaldaug/image/upload/v1518968470/parallax_hz2hot.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 197px;
-}
-
-.gjs-block-category .gjs-blocks-c div[title="Navbar 2"]:after,
-.gjs-block-category .gjs-blocks-c div[title=Starter]:after,
-.gjs-block-category .gjs-blocks-c div[title=Badges]:after,
-.gjs-block-category .gjs-blocks-c div[title=Slider]:after,
-.gjs-block-category .gjs-blocks-c div[title=Footer]:after,
-.gjs-block-category .gjs-blocks-c div[title=Members]:after,
-.gjs-block-category .gjs-blocks-c div[title=Blog]:after,
-.gjs-block-category .gjs-blocks-c div[title="Navbar 1"]:after,
-.gjs-block-category .gjs-blocks-c div[title=Parallax]:after,
-.gjs-block-category .gjs-blocks-c div[title=Card]:after {
-  content: "";
-  line-height: 2;
-  position: fixed;
-  color: #fff;
-  top: 0;
-  right: 220px;
-  opacity: 0;
-  z-index: 2;
-  visibility: hidden;
-  transition: all ease-in-out 0.3s;
-  -webkit-transition: all ease-in-out 0.3s;
-  -moz-transition: all ease-in-out 0.3s;
-}
-
-.gjs-block-category .gjs-blocks-c div[title="Navbar 2"]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Starter]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Badges]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Slider]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Blog]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Footer]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Members]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title="Navbar 1"]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Parallax]:hover:after,
-.gjs-block-category .gjs-blocks-c div[title=Card]:hover:after {
-  top: 10%;
-  opacity: 1;
-  display: block;
-  visibility: visible;
-}
-
-.right {
-  float: right;
-}
-
-/* Overwrite GrapeJS css */
 .gjs-one-bg {
   background-color: #f6f7f9;
 }
@@ -388,7 +230,11 @@ html {
   box-shadow: 0 3px 4px 0 rgba(204, 210, 251, 0.42);
 }
 
-.gjs-category-title, .gjs-sm-sector .gjs-sm-title, .gjs-clm-tags .gjs-sm-title, .gjs-block-category .gjs-title, .gjs-layer-title {
+.gjs-category-title,
+.gjs-sm-sector .gjs-sm-title,
+.gjs-clm-tags .gjs-sm-title,
+.gjs-block-category .gjs-title,
+.gjs-layer-title {
   background-color: #eee;
   border-bottom: 1px solid rgba(121, 121, 121, 0.25);
 }
@@ -406,7 +252,7 @@ html {
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg, #2f3c54 0%, #414251 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#2f3c54", endColorstr="#414251",GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2f3c54", endColorstr="#414251", GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
   color: #999;
 }
@@ -467,54 +313,43 @@ html {
   color: #000;
 }
 
-.gjs-btn-html,
-.gjs-btn-css,
-.gjs-btn-export {
-  float: right;
+#gjs-mdl-c .header-menus {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
 }
 
-.gjs-btn-import, .gjs-btn-zip, .gjs-btn-export, .gjs-btn-load, .gjs-btn-css, .gjs-btn-html {
+#gjs-mdl-c .header-menus button {
+  transition: all ease 0.2s;
   color: #587899;
   font-size: 13px;
   margin: 10px 0 10px;
   background: #fff;
   box-shadow: 0 1px 10px #dddddd70;
   padding: 8px 16px;
+  margin: 10px;
+}
+
+#gjs-mdl-c .header-menus button:hover {
+  transform: translateY(-2px);
+  background: var(--theme-color);
+  color: #fff;
+}
+
+label.gjs-import-file {
+  padding: 8px 16px;
+  border: 1px dashed #ddd;
+  font-size: 13px;
+  background: #fff;
+}
+
+label.gjs-import-file:hover {
+  cursor: pointer;
+  border-color: var(--theme-color);
 }
 
 .CodeMirror {
   height: 400px;
-}
-
-.modelPopup input[type=text] {
-  height: 20px;
-}
-
-.modelPopup {
-  z-index: 99999;
-  position: fixed;
-  top: -20%;
-  left: 50%;
-  margin-left: -100px;
-  width: 200px;
-  background: #fff;
-  padding: 20px;
-  height: auto;
-  text-align: center;
-  opacity: 0;
-  box-shadow: 0 10px 300px rgba(116, 116, 116, 0.8);
-  -moz-box-shadow: 0 10px 300px rgba(116, 116, 116, 0.8);
-  -webkit-box-shadow: 0 10px 300px rgba(116, 116, 116, 0.8);
-  visibility: hidden;
-  transition: all ease-in-out 0.4s;
-  -webkit-transition: all ease-in-out 0.4s;
-  -moz-transition: all ease-in-out 0.4s;
-}
-
-.modelPopup.showup {
-  top: 20% !important;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
 button.exportgram {
@@ -525,12 +360,14 @@ button.exportgram {
   border-radius: 20px;
 }
 
-.html-wrapper, .css-wrapper {
+.html-wrapper,
+.css-wrapper {
   width: 49%;
   float: left;
 }
 
-.html-wrapper h4, .css-wrapper h4 {
+.html-wrapper h4,
+.css-wrapper h4 {
   margin: 4px 0 4px;
 }
 
@@ -557,5 +394,5 @@ label.gjs-radio-item-label,
 }
 
 .gjs-four-color-h:hover {
-  color: #41dad2;
+  color: var(--theme-color);
 }

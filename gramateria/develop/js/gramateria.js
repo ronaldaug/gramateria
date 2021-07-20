@@ -3,8 +3,20 @@ import styleManager from './config/styleManager'
 import commands from './config/commands'
 import assetManager from './config/assetManager'
 import buttons from './config/buttons'
+import { checkExtension } from './helpers/index.js'
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css'; // for React, Vue and Svelte
+
 class Gramateria {
-    constructor(){
+    constructor() {
+
+        this.msg = new Notyf({
+            duration: 3000,
+            position: {
+              x: 'center',
+              y: 'top'
+            }
+        });
         this.editor = grapesjs.init({
             allowScripts: 1,
             showOffsets: 1,
@@ -40,18 +52,16 @@ class Gramateria {
         });
 
         this.editor.Panels.addButton('options', buttons);
+        this.modal = this.editor.Modal;
+
     }
-    checkExtension (fname) {
-        let ext = /^.+\.([^.]+)$/.exec(fname);
-        return ext == null ? "" : ext[1];
-    }
-    editModal() {        
+
+    codeImportModal() {
 
         // ---------------------
         // Import/Edit
         // ---------------------
         let prefix = this.editor.getConfig().stylePrefix;
-        let modal = this.editor.Modal;
 
         let modal_content_wrapper = document.createElement("div");
         modal_content_wrapper.id = "modal-wrapper";
@@ -60,63 +70,63 @@ class Gramateria {
         let copyHtml = document.createElement("button");
         let copyCss = document.createElement("button");
         let exportTxt = document.createElement("button");
-        let loadTxt = document.createElement("button");
-        let fileLoader = document.createElement("form");
+        let fileLoader = document.createElement("label");
         let anchor = document.createElement("a");
+        let header_menus = document.createElement("div");
+        let fileLoadInput = document.createElement("input");
+        fileLoadInput.style.display = 'none';
+        fileLoadInput.setAttribute('type','file');
 
+        let htmlCodeEditor = this.buildCodeEditor('html');
+        let cssCodeEditor = this.buildCodeEditor('css');
 
-     
+        btnEdit.innerHTML = '<i class="fa fa-code"></i> Apply & close';
+        exportTxt.innerHTML = '<i class="fa fa-download"></i> Save as .gram file';
+        copyHtml.innerHTML = '<i class="fa fa-copy"></i> Copy HTML';
+        copyCss.innerHTML = '<i class="fa fa-copy"></i> Copy CSS';
+        fileLoader.innerHTML = '<span class="fa fa-file"></span> Load .gram file';
+        fileLoader.appendChild(fileLoadInput);
 
-        let htmlCodeEditor   = this.buildCodeEditor('html');
-        let cssCodeEditor    = this.buildCodeEditor('css');
-
-        btnEdit.innerHTML    = '<i class="fa fa-code"></i> Apply';
-        exportTxt.innerHTML  = '<i class="fa fa-download"></i> Save as .gram file';
-        loadTxt.innerHTML    = '<i class="fa fa-upload"></i> Load .gram file';
-        copyHtml.innerHTML   = '<i class="fa fa-copy"></i> Copy HTML';
-        copyCss.innerHTML    = '<i class="fa fa-copy"></i> Copy CSS';
-        fileLoader.innerHTML = '<input type="file" id="fileToLoad">';
-
+        header_menus.className = 'header-menus';
         fileLoader.className = prefix + 'import-file';
-        btnEdit.className    = prefix + 'btn-prim ' + prefix + 'btn-import';
-        copyHtml.className   = prefix + 'btn-prim ' + prefix + 'btn-html';
-        copyCss.className    = prefix + 'btn-prim ' + prefix + 'btn-css';
-        exportTxt.className  = prefix + 'btn-prim ' + prefix + 'btn-export';
-        loadTxt.className    = prefix + 'btn-prim ' + prefix + 'btn-load';
+        btnEdit.className = prefix + 'btn-prim ' + prefix + 'btn-import';
+        copyHtml.className = prefix + 'btn-prim ' + prefix + 'btn-html';
+        copyCss.className = prefix + 'btn-prim ' + prefix + 'btn-css';
+        exportTxt.className = prefix + 'btn-prim ' + prefix + 'btn-export';
+
+
+        fileLoadInput.onchange = (e) =>{
+            let currentFile = e.target.files[0];
+            let fType = checkExtension(currentFile['name']);
+            if (currentFile === undefined) {
+                this.msg.error('Please select a file');
+                return;
+            }
+            const allowFileType = ['gram','txt'];
+            if (!allowFileType.includes(fType)) {
+                this.msg.error('You can only import .gram or .txt extension');
+                return;
+            }
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                let fileData = e.target.result;
+                this.editor.DomComponents.getWrapper().set('content', '');
+                this.editor.setComponents(fileData);
+                this.modal.close();
+            }
+            reader.readAsText(currentFile);
+        }
 
         // import button inside import editor
-        btnEdit.onclick =  () => {
+        btnEdit.onclick = () => {
             let htmlCode = htmlCodeEditor.editor.getValue();
             let cssCode = cssCodeEditor.editor.getValue();
             this.editor.DomComponents.getWrapper().set('content', '');
             this.editor.setComponents(htmlCode.trim() + '<style>' + cssCode.trim() + '</style>');
-            modal.close();
+            this.modal.close();
         };
 
-        // onclick load file button inside import editor
-        loadTxt.onclick =  (e) =>{
-            e.preventDefault();
-            let fileToLoad = document.getElementById("fileToLoad").files[0];
-            let fType = this.checkExtension(fileToLoad['name']);
-            if (fileToLoad === undefined) {
-                alert('Please select a file');
-                return;
-            }
-            if (fType === 'gram' || fType === 'txt') {
-                let reader = new FileReader();
-                reader.onload = (e) =>{
-                    let fileData = e.target.result;
-                    this.editor.DomComponents.getWrapper().set('content', '');
-                    this.editor.setComponents(fileData);
-                    modal.close();
-                }
-                reader.readAsText(fileToLoad);
-            } else {
-                alert('You can only import .gram or .txt extension');
-            }
-        }
-
-        copyHtml.onclick =  () => {
+        copyHtml.onclick = () => {
             let htmlCodes = htmlCodeEditor.editor.getValue();
             let dummy = document.createElement("input");
             document.body.appendChild(dummy);
@@ -125,10 +135,10 @@ class Gramateria {
             document.execCommand("copy");
             document.body.removeChild(dummy);
             document.execCommand('copy');
-            alert('You have copied HTML codes!');
+            this.msg.success('You have copied HTML codes!');
         };
 
-        copyCss.onclick = function () {
+        copyCss.onclick =  () => {
             let cssCodes = cssCodeEditor.editor.getValue();
             let dummy = document.createElement("input");
             document.body.appendChild(dummy);
@@ -137,11 +147,11 @@ class Gramateria {
             document.execCommand("copy");
             document.body.removeChild(dummy);
             document.execCommand('copy');
-            alert('You have copied CSS codes!');
+            this.msg.success('You have copied CSS codes!');
         };
 
         // onclick save as button inside import editor
-        exportTxt.onclick =  () => {
+        exportTxt.onclick = () => {
             let InnerHtml = this.editor.getHtml();
             let Css = this.editor.getCss();
             let text = InnerHtml + "<style>" + Css + '</style>';
@@ -156,6 +166,13 @@ class Gramateria {
             anchor.click();
             document.body.removeChild(anchor);
         }
+
+
+        header_menus.appendChild(fileLoader);
+        header_menus.appendChild(exportTxt)
+        header_menus.appendChild(copyCss);
+        header_menus.appendChild(copyHtml);
+        header_menus.appendChild(btnEdit);
 
         // import nav button click event
         this.editor.Commands.add('html-edit', {
@@ -179,25 +196,20 @@ class Gramateria {
                 headline.className = 'clear-fix';
 
                 if (!htmlCodeEditor.editor && !cssCodeEditor.editor) {
-                    modal_content_wrapper.appendChild(fileLoader);
-                    modal_content_wrapper.appendChild(loadTxt);
-                    modal_content_wrapper.appendChild(exportTxt);
+                    modal_content_wrapper.appendChild(header_menus);
                     modal_content_wrapper.appendChild(headline);
                     modal_content_wrapper.appendChild(htmlBox);
                     modal_content_wrapper.appendChild(cssBox);
-                    modal_content_wrapper.appendChild(copyCss);
-                    modal_content_wrapper.appendChild(copyHtml);
-                    modal_content_wrapper.appendChild(btnEdit);
                     htmlCodeEditor.init(html_textarea_box);
                     cssCodeEditor.init(css_textarea_box);
                 }
 
-                modal.setTitle('Edit and Import');
-                modal.setContent('');
-                modal.setContent(modal_content_wrapper);
+                this.modal.setTitle('Edit and Import');
+                this.modal.setContent('');
+                this.modal.setContent(modal_content_wrapper);
                 htmlCodeEditor.setContent(editor.getHtml());
                 cssCodeEditor.setContent(editor.getCss({ avoidProtected: true }));
-                modal.open();
+                this.modal.open();
                 htmlCodeEditor.editor.refresh();
                 cssCodeEditor.editor.refresh();
             }
@@ -221,14 +233,14 @@ class Gramateria {
         });
         return codeEditor;
     }
-
-    init(){
-        this.editModal();
-        this.editor.Panels.removeButton('options', 'export-template');        
-        this.editor.on('load', (editor)=>{ 
-            editor.Panels.getButton('views', 'open-blocks').set('active', true) 
-            editor.BlockManager.getCategories().each(function (ctg) {
-                if(ctg.attributes.id == 'Section'){
+    
+    init() {
+        this.codeImportModal();
+        this.editor.Panels.removeButton('options', 'export-template');
+        this.editor.on('load', (editor) => {
+            editor.Panels.getButton('views', 'open-blocks').set('active', true)
+            editor.BlockManager.getCategories().each( (ctg) => {
+                if (ctg.attributes.id == 'Section') {
                     return;
                 }
                 ctg.set('open', false);

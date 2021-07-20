@@ -1,3 +1,5 @@
+import { exportZip } from './../helpers'
+
 export default [{
     id: 'undo',
     className: 'fa fa-undo icon-undo',
@@ -66,6 +68,9 @@ export default [{
     className: 'fa fa-download',
     command: (editor, sender) =>{
         sender.set('active', 0);
+        let html  = localStorage.getItem('gjs-html') || '';
+        let css   = localStorage.getItem('gjs-css') || '';
+        exportZip({html,css});
     },
     attributes: {
         title: 'Download as zip'
