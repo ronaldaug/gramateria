@@ -1,15 +1,7 @@
-body,
-html {
-    height: 100%;
-    margin: 0;
-}
-.fa::before{
-    -webkit-text-stroke: 0.5px #fff;
-}
-
 .gjs-cm-editor#gjs-cm-css #gjs-cm-title,
 .gjs-cm-editor#gjs-cm-htmlmixed #gjs-cm-title,
 .gjs-two-color,
+.gjs-four-color,
 .gjs-color-warn, .gjs-sm-sector .gjs-sm-field input, .gjs-clm-tags .gjs-sm-field input, .gjs-sm-sector .gjs-clm-field input, .gjs-clm-tags .gjs-clm-field input, .gjs-sm-sector .gjs-sm-field select, .gjs-clm-tags .gjs-sm-field select, .gjs-sm-sector .gjs-clm-field select, .gjs-clm-tags .gjs-clm-field select {
     color: #464973;
 }
@@ -214,27 +206,6 @@ html {
     background: #232c3c;
 }
 
-.cm-s-hopscotch span.cm-tag {
-    color: #9a648b;
-}
-
-.cm-s-hopscotch span.cm-atom {
-    color: #836fb6;
-}
-
-.cm-s-hopscotch span.cm-number {
-    color: #a06d91;
-}
-
-.cm-s-hopscotch span.cm-string {
-    color: #816eb5;
-}
-
-.cm-s-hopscotch span.cm-property,
-.cm-s-hopscotch span.cm-attribute {
-    color: #5eb6cc;
-}
-
 
 /* class name */
 .gjs-clm-tags #gjs-clm-close,
@@ -297,6 +268,9 @@ html {
     color: #587899;
     font-size: 13px;
     margin:10px 0 10px;
+    background:#fff;
+    box-shadow:0 1px 10px #dddddd70;
+    padding:8px 16px;
 }
 
 .CodeMirror{
@@ -352,7 +326,7 @@ button.exportgram {
 .gjs-mdl-dialog{
     max-width:none;
 }
-.clear-head{
+.clear-fix{
     width:100%;
     clear:both;
 }
@@ -360,3 +334,17 @@ button.exportgram {
     margin-left:2%;
 }
 
+
+
+.gjs-sm-sectors .gjs-radio-items .gjs-radio-item{
+    background:#585858;
+}
+
+label.gjs-radio-item-label,
+.gjs-sm-sectors .gjs-radio-item .fa{
+    color:#fff;
+}
+
+.gjs-four-color-h:hover{
+    color:#41dad2;
+}

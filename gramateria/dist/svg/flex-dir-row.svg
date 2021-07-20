@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>flex-dir-row</title>
+    <desc>Created with Sketch.</desc>
+    <g id="flex-dir-row" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M1,14 L10,14 C10.5522847,14 11,14.4477153 11,15 L11,24 C11,24.5522847 10.5522847,25 10,25 L1,25 C0.44771525,25 6.76353751e-17,24.5522847 0,24 L0,15 C-6.76353751e-17,14.4477153 0.44771525,14 1,14 Z M15,14 L24,14 C24.5522847,14 25,14.4477153 25,15 L25,24 C25,24.5522847 24.5522847,25 24,25 L15,25 C14.4477153,25 14,24.5522847 14,24 L14,15 C14,14.4477153 14.4477153,14 15,14 Z M21,6 L21,3 L25,7 L21,11 L21,8 L1,8 C0.44771525,8 0,7.55228475 0,7 C0,6.44771525 0.44771525,6 1,6 L21,6 Z" id="Combined-Shape" fill="#D8D8D8"></path>
+    </g>
+</svg>
