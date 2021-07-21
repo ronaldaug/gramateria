@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "gen": "mix",
+    "watch": "mix watch",
     "start": "electron index.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"

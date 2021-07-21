@@ -1,6 +1,28 @@
-# Gramateria - v1.0.4
+# Gramateria - v1.0.4 
+A drag and drop web builder  
+
 
 Gramateria v1.0.4 is a re-rewritten version that changed many features and code.
+
+> Although I have stopped developing this app for a while, there are still many users and I feel a little bad because of my old/dirty codes. So I decided to refactor the codes and add some features to be more useful for developers and non-developers.
+
+
+## Installation 
+
+```npm install```
+
+```npm start```
+
+#### Generate sources
+```npm run gen```
+
+#### Watch sources
+```npm run watch```
+
+
+##### Build desktop app
+```npm run pack```
+----
 
 ### v1.0.4 Change logs
 
@@ -14,19 +36,6 @@ Gramateria v1.0.4 is a re-rewritten version that changed many features and code.
 - Add Notyf for toast messages
 - Remove Gapesjs export plugin 
 
-
-A drag and drop web builder  
-
-### Building a desktop app.
-
-```npm install```
-
-```npm start```
-
-##### Mac
-```npm run pack```
-
-----
 
 ### Credits
 - Grapesjs [Grapes JS](https://www.grapesjs.com/ "Grapes Js")
