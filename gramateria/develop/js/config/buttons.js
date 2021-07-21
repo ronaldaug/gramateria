@@ -48,7 +48,6 @@ export default [{
                 localStorage.setItem('gjs-html', '');
                 localStorage.setItem('gjs-css', '');
                 localStorage.setItem('gjs-styles', '');
-                localStorage.setItem('gram-seo', '');
             }, 0);
         }
     },
