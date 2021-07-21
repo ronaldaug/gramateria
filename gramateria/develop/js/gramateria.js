@@ -1,6 +1,6 @@
 import blockManager from './config/blockManager'
 import styleManager from './config/styleManager'
-import commands from './config/commands'
+// import commands from './config/commands'
 import assetManager from './config/assetManager'
 import buttons from './config/buttons'
 import { checkExtension } from './helpers/index.js'
@@ -13,8 +13,8 @@ class Gramateria {
         this.msg = new Notyf({
             duration: 3000,
             position: {
-              x: 'center',
-              y: 'top'
+                x: 'center',
+                y: 'top'
             }
         });
         this.editor = grapesjs.init({
@@ -35,7 +35,7 @@ class Gramateria {
                     'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js'
                 ],
             },
-            commands,
+            // commands,
             assetManager,
             blockManager,
             styleManager,
@@ -76,7 +76,7 @@ class Gramateria {
         let header_menus = document.createElement("div");
         let fileLoadInput = document.createElement("input");
         fileLoadInput.style.display = 'none';
-        fileLoadInput.setAttribute('type','file');
+        fileLoadInput.setAttribute('type', 'file');
 
         let htmlCodeEditor = this.buildCodeEditor('html');
         let cssCodeEditor = this.buildCodeEditor('css');
@@ -96,14 +96,14 @@ class Gramateria {
         exportTxt.className = 'btn ' + prefix + 'btn-export';
 
 
-        fileLoadInput.onchange = (e) =>{
+        fileLoadInput.onchange = (e) => {
             let currentFile = e.target.files[0];
             let fType = checkExtension(currentFile['name']);
             if (currentFile === undefined) {
                 this.msg.error('Please select a file');
                 return;
             }
-            const allowFileType = ['gram','txt'];
+            const allowFileType = ['gram', 'txt'];
             if (!allowFileType.includes(fType)) {
                 this.msg.error('You can only import .gram or .txt extension');
                 return;
@@ -139,7 +139,7 @@ class Gramateria {
             this.msg.success('You have copied HTML codes!');
         };
 
-        copyCss.onclick =  () => {
+        copyCss.onclick = () => {
             let cssCodes = cssCodeEditor.editor.getValue();
             let dummy = document.createElement("input");
             document.body.appendChild(dummy);
@@ -234,27 +234,55 @@ class Gramateria {
         });
         return codeEditor;
     }
-    
+
     init() {
         this.codeImportModal();
         this.editor.Panels.removeButton('options', 'export-template');
         this.editor.on('load', (editor) => {
             editor.Panels.getButton('views', 'open-blocks').set('active', true)
-            editor.BlockManager.getCategories().each( (ctg) => {
+            editor.BlockManager.getCategories().each((ctg) => {
                 if (ctg.attributes.id === 'Sections') {
                     return;
                 }
                 ctg.set('open', false);
             });
+
+
+            // ----------------------------------------
+            // Load and show settings and style manager
+            // ----------------------------------------
+            let openTmBtn = editor.Panels.getButton('views', 'open-tm');
+            openTmBtn && openTmBtn.set('active', 1);
+            let openSm = editor.Panels.getButton('views', 'open-sm');
+            openSm && openSm.set('active', 1);
+
+            // Add Settings Sector
+            let traitsSector = document.createElement('div');
+            traitsSector.innerHTML = '<div class="gjs-sm-sector no-select">' +
+                '<div class="gjs-sm-title"><span class="icon-settings fa fa-cog"></span> Settings</div>' +
+                '<div class="gjs-sm-properties" style="display: none;"></div></div>';
+            let traitsProps = traitsSector.querySelector('.gjs-sm-properties');
+            traitsProps.append(document.querySelector('.gjs-trt-traits'));
+            document.querySelector('.gjs-sm-sectors').insertAdjacentElement('beforebegin',traitsSector);
+            traitsSector.querySelector('.gjs-sm-title').addEventListener('click', () => {
+                let traitStyle = window.getComputedStyle(traitsProps);
+                let hidden = traitStyle.display == 'none';
+                if (hidden) {
+                    traitsProps.style.display = 'block';
+                } else {
+                    traitsProps.style.display = 'none';
+                }
+            });
         });
+
         this.editor.getWrapper().addClass('iframe-wrapper');
         this.editor.render();
-        setTimeout(()=>{
+        setTimeout(() => {
             const iframe = this.editor.Canvas.getFrameEl();
             const iframeStyle = document.createElement('style');
             iframeStyle.innerHTML = '.iframe-wrapper{padding-bottom:40px;}'
             iframe.contentDocument.head.appendChild(iframeStyle);
-        },500)
+        }, 500)
     }
 }
 
