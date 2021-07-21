@@ -68,9 +68,34 @@ export default [{
     className: 'fa fa-download',
     command: (editor, sender) =>{
         sender.set('active', 0);
-        let html  = localStorage.getItem('gjs-html') || '';
-        let css   = localStorage.getItem('gjs-css') || '';
-        exportZip({html,css});
+        let modal = editor.Modal;
+        modal.setTitle('Export');
+
+        const form = `
+        <form id="export-form" class="gram-form">
+            <div class="form-group">
+                <label>Website Title</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Website Description</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary"><span class="fa fa-download"></span>Export</button>
+            </div>
+        </form>
+        `;
+
+
+        modal.setContent(form);
+        modal.open({attributes: {
+            class: 'form-modal',
+        }});
+
+        // let html  = localStorage.getItem('gjs-html') || '';
+        // let css   = localStorage.getItem('gjs-css') || '';
+        // exportZip({html,css});
     },
     attributes: {
         title: 'Download as zip'

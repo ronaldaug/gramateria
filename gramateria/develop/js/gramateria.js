@@ -28,7 +28,8 @@ class Gramateria {
             clearOnRender: 0,
             canvas: {
                 styles: [
-                    'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/materia/bootstrap.min.css'
+                    'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/materia/bootstrap.min.css',
+                    'https://cdn.statically.io/gh/gramateria/readyui-free/main/css/style.min.css'
                 ],
                 scripts: [
                     'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js'
@@ -89,10 +90,10 @@ class Gramateria {
 
         header_menus.className = 'header-menus';
         fileLoader.className = prefix + 'import-file';
-        btnEdit.className = prefix + 'btn-prim ' + prefix + 'btn-import';
-        copyHtml.className = prefix + 'btn-prim ' + prefix + 'btn-html';
-        copyCss.className = prefix + 'btn-prim ' + prefix + 'btn-css';
-        exportTxt.className = prefix + 'btn-prim ' + prefix + 'btn-export';
+        btnEdit.className = 'btn ' + prefix + 'btn-import';
+        copyHtml.className = 'btn ' + prefix + 'btn-html';
+        copyCss.className = 'btn ' + prefix + 'btn-css';
+        exportTxt.className = 'btn ' + prefix + 'btn-export';
 
 
         fileLoadInput.onchange = (e) =>{
@@ -240,7 +241,7 @@ class Gramateria {
         this.editor.on('load', (editor) => {
             editor.Panels.getButton('views', 'open-blocks').set('active', true)
             editor.BlockManager.getCategories().each( (ctg) => {
-                if (ctg.attributes.id == 'Section') {
+                if (ctg.attributes.id === 'Sections') {
                     return;
                 }
                 ctg.set('open', false);

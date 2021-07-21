@@ -111,24 +111,8 @@
     align-items: center;
 }
 
-#gjs-mdl-c .header-menus button{
-    transition:all ease 0.2s;
-    color: #587899;
-    font-size: 13px;
-    margin: 10px 0 10px;
-    background: #fff;
-    box-shadow: 0 1px 10px #dddddd70;
-    padding: 8px 16px;
-    margin:10px;
-}
-#gjs-mdl-c .header-menus button:hover{
-    transform:translateY(-2px);
-    background:var(--theme-color);
-    color:#fff;
-}
-
 label.gjs-import-file {
-    padding:8px 16px;
+    padding:10px 30px;
     border:1px dashed #ddd;
     font-size:13px;
     background:#fff;

@@ -1,0 +1,32 @@
+.gram-form .form-group label{
+    display:block;
+}
+
+.gram-form .form-control{
+    width:100%;
+    clear:both;
+    margin:10px 0 10px;
+}
+
+.gram-form input.form-control{
+    height:30px;
+    border:1px solid #ddd;
+}
+
+
+.gram-form textarea.form-control{
+    min-height:60px;
+    border:1px solid #ddd;
+}
+
+
+.gram-form textarea.form-control:active,
+.gram-form textarea.form-control:focus,
+.gram-form input.form-control:active,
+.gram-form input.form-control:focus{
+    box-shadow:none;
+    border:none;
+    outline:none;
+    border:1px solid var(--theme-color);
+}
+
