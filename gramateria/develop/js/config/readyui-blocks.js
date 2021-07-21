@@ -798,77 +798,66 @@ export default [
         attributes: {
             class: 'fa fa-bars'
         },
-        content: `<section class="team-section team6 text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
-                <div class="text-center">
-                    <h2 class="heading-2">The Awesome Team</h2>
-                    <p class="paragraph-medium">Launch party social proof leverage MVP lean startup creative equity startup direct 
-                    mailing. Niche market startup paradigm shift learning curve.</p>
+        content: `<section class="pricing-section price1-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1 offset-lg-2 col-lg-8 text-center">
+                    <h2 class="heading-2">Choose Your Plan</h2>
+                    <p class="paragraph-medium">Launch party social proof leverage MVP lean startup creative equity startup direct mailing.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12 text-center">
+                    <div class="pricing-single">
+                        <h3 class="heading-3">$39.95</h3>
+                        <h6 class="heading-6">Monthly</h6>
+                        <hr>
+                        <p class="paragraph-medium16">Instant Access to Entire Course</p>
+                        <p class="paragraph-medium16">All Lessons & Classes From White to Black</p>
+                        <p class="paragraph-medium16">Connect & Train With Students in the Course</p>
+                        <p class="paragraph-medium16">Accredited Rank Testing & Advancement</p>
+                        <p class="paragraph-medium16">Instructor Support, Feedback & Guidance</p>
+                        <p class="paragraph-medium16">Fresh Training Material Added Monthly</p>
+                        <p class="paragraph-medium16">Cancel Anytime</p>
+                        <a href="#" class="button-lg-stroke m-auto pricing1-btn">Enroll Now</a>
+                        <p class="paragraph-bold">Per month payment</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12 text-center">
+                    <div class="pricing-single">
+                        <h3 class="heading-3">$179</h3>
+                        <h6 class="heading-6">Annualy</h6>
+                        <hr>
+                        <p class="paragraph-medium16">Instant Access to Entire Course</p>
+                        <p class="paragraph-medium16">90+ Follow Along Classes</p>
+                        <p class="paragraph-medium16">100+ Technique Lessons</p>
+                        <p class="paragraph-medium16">Fresh Training Material Added Monthly</p>
+                        <p class="paragraph-medium16">Accredited Rank Testing & Advancement</p>
+                        <p class="paragraph-medium16">Instructor Support, Feedback & Guidance</p>
+                        <p class="paragraph-medium16">Pay $179.70 Every Six Months (Save 25%)</p>
+                        <p class="paragraph-medium16">Cancel Anytime</p>
+                        <a href="#" class="button-lg-stroke m-auto">Enroll Now</a>
+                        <p  class="paragraph-bold">One time yearly payment</p>
+                    </div>
+                </div>
+                <div class="col-md-6 offset-md-3 offset-lg-0 col-lg-4 col-12 text-center">
+                    <div class="pricing-single">
+                        <h3 class="heading-3">$195.00</h3>
+                        <h6 class="heading-6">Life Time</h6>
+                        <hr>
+                        <p class="paragraph-medium16">Instant Access to Entire Course</p>
+                        <p class="paragraph-medium16">90+ Follow Along Classes</p>
+                        <p class="paragraph-medium16">125+ Technique Lessons</p>
+                        <p class="paragraph-medium16">Fresh Training Material Added Monthly</p>
+                        <p class="paragraph-medium16">Accredited Rank Testing & Advancement</p>
+                        <p class="paragraph-medium16">Instructor Support, Feedback & Guidance</p>
+                        <p class="paragraph-medium16">Access For Life Pay - Upfront</p>
+                        <p class="paragraph-medium16">Save Over $1300 on Your Journey</p>
+                        <a href="#" class="button-lg-stroke m-auto">Enroll Now</a>
+                        <p  class="paragraph-bold">One time payment</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image61.png" alt="img">
-                    <h6 class="heading-6">Arther Melo</h6>
-                    <p class="paragraph-medium16">Design system</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image-62.png" alt="img">
-                    <h6 class="heading-6">Lisa Luiz</h6>
-                    <p class="paragraph-medium16">Ui Kit</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image-63.png" alt="img">
-                    <h6 class="heading-6">Ena Williams</h6>
-                    <p class="paragraph-medium16">Ui Kit</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image-64.png" alt="img">
-                    <h6 class="heading-6">Xavier Pablo</h6>
-                    <p class="paragraph-medium16">Ui Kit</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image61.png" alt="img">
-                    <h6 class="heading-6">Arther Melo</h6>
-                    <p class="paragraph-medium16">Design system</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image-62.png" alt="img">
-                    <h6 class="heading-6">Lisa Luiz</h6>
-                    <p class="paragraph-medium16">Ui Kit</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image-63.png" alt="img">
-                    <h6 class="heading-6">Ena Williams</h6>
-                    <p class="paragraph-medium16">Ui Kit</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="team-single">
-                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/team6/image-64.png" alt="img">
-                    <h6 class="heading-6">Xavier Pablo</h6>
-                    <p class="paragraph-medium16">Ui Kit</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>`
+    </section>`
     },
     {
         id: 'ready-ui-team',
@@ -951,63 +940,63 @@ export default [
     },
     {
         id: 'ready-ui-testimonial',
-        label: 'Team',
+        label: 'Testimonial',
         category: 'Sections',
         attributes: {
             class: 'fa fa-th'
         },
         content: `<section class="testimonial testimonial1-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="offset-md-1 col-md-10 offset-xl-2 col-xl-8 text-center">
-                    <h2 class="heading-2">What clients say</h2>
-                    <p class="paragraph-medium">Launch party social proof leverage MVP lean startup creative equity
-                        startup direct
-                        mailing. Niche market startup paradigm shift learning curve.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-xl-4">
-                    <div class="custom-carousel-item">
-                        <p class="paragraph-medium">“An Alpha assete crowds funding term & technology of the suppling chains spoket piuvot strategy iPhone businesses to the consumers virallity leverages. Places the Infrastructur prototype crowded source iPad years of the values”.  </p>
-                        <div class="img-group d-flex align-items-center">
-                            <img src="images/testimonial/testimonial1-img1.svg" alt="ff"
-                                class="img-fluid">
-                            <div class="name-cls">
-                                <h6 class="heading-6">Robbert</h6>
-                                <p class="paragraph-regular">CTO, Robert Consultency</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="custom-carousel-item">
-                        <p class="paragraph-medium">“An Alpha assete crowds funding term & technology of the suppling chains spoket piuvot strategy iPhone businesses to the consumers virallity leverages. Places the Infrastructur prototype crowded source iPad years of the values”.  </p>
-                        <div class="img-group d-flex align-items-center">
-                            <img src="images/testimonial/testimonial1-img2.svg" alt="gg"
-                                class="img-fluid">
-                            <div class="name-cls">
-                                <h6 class="heading-6">Jeny Doe</h6>
-                                <p class="paragraph-regular">CTO, Jeny Consultency</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="custom-carousel-item">
-                        <p class="paragraph-medium">“An Alpha assete crowds funding term & technology of the suppling chains spoket piuvot strategy iPhone businesses to the consumers virallity leverages. Places the Infrastructur prototype crowded source iPad years of the values”.  </p>
-                        <div class="img-group d-flex align-items-center">
-                            <img src="images/testimonial/testimonial1-img3.svg" alt="gg"
-                                class="img-fluid">
-                            <div class="name-cls">
-                                <h6 class="heading-6">Ema Watson </h6>
-                                <p class="paragraph-regular">Marketing Manager at Stech</p>
-                            </div>
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10 offset-xl-2 col-xl-8 text-center">
+            <h2 class="heading-2">What clients say</h2>
+            <p class="paragraph-medium">Launch party social proof leverage MVP lean startup creative equity
+                startup direct
+                mailing. Niche market startup paradigm shift learning curve.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-4">
+            <div class="custom-carousel-item">
+                <p class="paragraph-medium">“An Alpha assete crowds funding term & technology of the suppling chains spoket piuvot strategy iPhone businesses to the consumers virallity leverages. Places the Infrastructur prototype crowded source iPad years of the values”.  </p>
+                <div class="img-group d-flex align-items-center">
+                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/testimonial/testimonial1-img1.svg" alt="ff"
+                        class="img-fluid">
+                    <div class="name-cls">
+                        <h6 class="heading-6">Robbert</h6>
+                        <p class="paragraph-regular">CTO, Robert Consultency</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>`
+        <div class="col-md-6 col-xl-4">
+            <div class="custom-carousel-item">
+                <p class="paragraph-medium">“An Alpha assete crowds funding term & technology of the suppling chains spoket piuvot strategy iPhone businesses to the consumers virallity leverages. Places the Infrastructur prototype crowded source iPad years of the values”.  </p>
+                <div class="img-group d-flex align-items-center">
+                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/testimonial/testimonial1-img2.svg" alt="gg"
+                        class="img-fluid">
+                    <div class="name-cls">
+                        <h6 class="heading-6">Jeny Doe</h6>
+                        <p class="paragraph-regular">CTO, Jeny Consultency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-4">
+            <div class="custom-carousel-item">
+                <p class="paragraph-medium">“An Alpha assete crowds funding term & technology of the suppling chains spoket piuvot strategy iPhone businesses to the consumers virallity leverages. Places the Infrastructur prototype crowded source iPad years of the values”.  </p>
+                <div class="img-group d-flex align-items-center">
+                    <img src="https://cdn.statically.io/gh/gramateria/readyui-free/main/images/testimonial/testimonial1-img3.svg" alt="gg"
+                        class="img-fluid">
+                    <div class="name-cls">
+                        <h6 class="heading-6">Ema Watson </h6>
+                        <p class="paragraph-regular">Marketing Manager at Stech</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>`
     }
 ]
