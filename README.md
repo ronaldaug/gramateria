@@ -1,8 +1,8 @@
-# Gramateria - v1.0.4 
+# Gramateria - v1.0.6 
 A drag and drop web builder  
 
 
-Gramateria v1.0.4 is a re-rewritten version that changed many features and code.
+Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 
 > Although I have stopped developing this app for a while, there are still many users and I feel a little bad because of my old/dirty codes. So I decided to refactor the codes and add some features to be more useful for developers and non-developers.
 
@@ -24,7 +24,7 @@ Gramateria v1.0.4 is a re-rewritten version that changed many features and code.
 ```npm run pack```
 ----
 
-### v1.0.4 Change logs
+### v1.0.6 Change logs
 
 - Change electron-packager to electron-builder
 - Change Materialize CSS to Bootstrap 5
