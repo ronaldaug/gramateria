@@ -247,7 +247,14 @@ class Gramateria {
                 ctg.set('open', false);
             });
         });
+        this.editor.getWrapper().addClass('iframe-wrapper');
         this.editor.render();
+        setTimeout(()=>{
+            const iframe = this.editor.Canvas.getFrameEl();
+            const iframeStyle = document.createElement('style');
+            iframeStyle.innerHTML = '.iframe-wrapper{padding-bottom:40px;}'
+            iframe.contentDocument.head.appendChild(iframeStyle);
+        },500)
     }
 }
 
