@@ -73,7 +73,8 @@ export default [
                 </div>
             </div>
         </div>
-    </header>`
+    </header>
+    <style>.navbar{box-shadow:none}</style>`
     },
     {
         id: 'ready-ui-blog',

@@ -12,6 +12,7 @@ export const exportTemplate = (data)=>{
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/materia/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdn.statically.io/gh/gramateria/readyui-free/main/css/style.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
     <body>
         ${html || ''}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
