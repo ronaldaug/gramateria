@@ -1,33 +1,38 @@
-# gramateria
-A drag and drop web builder with materialize design.  
+# Gramateria - v1.0.4
 
-Grapesjs + Materialize = 🔥
+Gramateria v1.0.4 is a re-rewritten version that changed many features and code.
+
+### v1.0.4 Change logs
+
+- Change electron-packager to electron-builder
+- Change Materialize CSS to Bootstrap 5
+- Upgrade Grapesjs to v0.17.19 (latest version)
+- Added Nelify deployment
+- Messy codes to modular code
+- Added laravel mix for script comipling 
+- Added readyui.co blocks
+- Add Notyf for toast messages
+- Remove Gapesjs export plugin 
+
+
+A drag and drop web builder  
 
 ### Building a desktop app.
-
-`Note: You can use Gramateria by opening index.html file with Chrome browser and it works exactly the same as Desktop app.` 
-
-----
 
 ```npm install```
 
 ```npm start```
 
 ##### Mac
-```npm run build:mac```
+```npm run pack```
 
-##### Linux
-```npm run build:lin```
+----
 
-
-### Tutorials
-[Watch tutorials](https://www.youtube.com/watch?v=KNUIprEQm8M&index=2&list=PLuK4uSiMBzdleiFDbc5HtLgYNTGxxH7IZ)
-
-
-### Credit goes to 
-- Grapesjs [Grapes JS](http://www.grapesjs.com/ "Grapes Js")
-- Materialize [Materialize](http://www.materializecss.com/ "Materialize")
-- Electron [Electron JS](http://www.electronjs.org/ "Electron Js")
+### Credits
+- Grapesjs [Grapes JS](https://www.grapesjs.com/ "Grapes Js")
+- Bootstrap 5 [Bootstrap 5](https://www.getbootstrap.com/ "Bootstrap 5")
+- Electron JS [Electron JS](https//www.electronjs.org/ "Electron Js")
+- Readyui [Readyui](https://readyui.co/ "Readyui")
 
 Show your support by 🌟 the project, thanks.
 
