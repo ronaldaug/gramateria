@@ -31,7 +31,7 @@ Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 - Upgrade Grapesjs to v0.17.19 (latest version)
 - Added Nelify deployment
 - Messy codes to modular code
-- Added laravel mix for script comipling 
+- Added laravel mix for script compling 
 - Added readyui.co blocks
 - Add Notyf for toast messages
 - Remove Gapesjs export plugin 
