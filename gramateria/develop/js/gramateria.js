@@ -3,7 +3,7 @@ import styleManager from './config/styleManager'
 // import commands from './config/commands'
 import assetManager from './config/assetManager'
 import buttons from './config/buttons'
-import { checkExtension } from './helpers/index.js'
+import { checkExtension, loadingSpinner } from './helpers/index.js'
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css'; // for React, Vue and Svelte
 
@@ -26,13 +26,17 @@ class Gramateria {
             height: '100%',
             fromElement: true,
             clearOnRender: 0,
+            protectedCss:'.iframe-wrapper{padding-bottom:30px;}section:last-child{margin-bottom:30px}',
             canvas: {
                 styles: [
-                    'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/materia/bootstrap.min.css',
-                    'https://cdn.statically.io/gh/gramateria/readyui-free/main/css/style.min.css'
+                    'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap',
+                    'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css',
+                    'https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css',
+                    'gramateria/dist/global.css'
                 ],
                 scripts: [
-                    'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js'
+                    'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js',
+                    'gramateria/dist/global.js'
                 ],
             },
             // commands,
@@ -154,7 +158,7 @@ class Gramateria {
         // onclick save as button inside import editor
         exportTxt.onclick = () => {
             let InnerHtml = this.editor.getHtml();
-            let Css = this.editor.getCss();
+            let Css = this.editor.getCss({ avoidProtected:true });
             let text = InnerHtml + "<style>" + Css + '</style>';
             let blob = new Blob([text], {
                 type: "text/plain"
@@ -263,7 +267,7 @@ class Gramateria {
                 '<div class="gjs-sm-properties" style="display: none;"></div></div>';
             let traitsProps = traitsSector.querySelector('.gjs-sm-properties');
             traitsProps.append(document.querySelector('.gjs-trt-traits'));
-            document.querySelector('.gjs-sm-sectors').insertAdjacentElement('beforebegin',traitsSector);
+            document.querySelector('.gjs-sm-sectors').insertAdjacentElement('beforebegin', traitsSector);
             traitsSector.querySelector('.gjs-sm-title').addEventListener('click', () => {
                 let traitStyle = window.getComputedStyle(traitsProps);
                 let hidden = traitStyle.display == 'none';
@@ -277,13 +281,9 @@ class Gramateria {
 
         this.editor.getWrapper().addClass('iframe-wrapper');
         this.editor.render();
-        setTimeout(() => {
-            const iframe = this.editor.Canvas.getFrameEl();
-            const iframeStyle = document.createElement('style');
-            iframeStyle.innerHTML = '.iframe-wrapper{padding-bottom:40px;}'
-            iframe.contentDocument.head.appendChild(iframeStyle);
-        }, 500)
     }
 }
 
 (new Gramateria()).init();
+
+loadingSpinner();

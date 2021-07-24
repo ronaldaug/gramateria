@@ -1,0 +1,15 @@
+body{
+    background:#f6f9f7 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size:1.1rem;
+}
+
+section{
+    padding:100px 0 100px;
+}
+
+@media(max-width:768px){
+    section{
+        padding:50px 0 50px;
+    }
+}

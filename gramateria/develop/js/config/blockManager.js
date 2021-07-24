@@ -1,4 +1,4 @@
-import readyuiBlocks from './readyui-blocks';
+import sectionBlocks from './sectionBlocks';
 
 const bootstrapBasicBlocks = [
   {
@@ -293,7 +293,7 @@ const bootstrapBasicBlocks = [
   }
 ]
 
-const blocks = [...readyuiBlocks,...bootstrapBasicBlocks]
+const blocks = [...sectionBlocks,...bootstrapBasicBlocks]
 
 const blocksObj = {
     blocks

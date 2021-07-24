@@ -32,7 +32,7 @@ Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 - Added Nelify deployment
 - Messy codes to modular code
 - Added laravel mix for script compling 
-- Added readyui.co blocks
+- Added new blocks
 - Add Notyf for toast messages
 - Remove Gapesjs export plugin 
 
@@ -41,7 +41,6 @@ Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 - Grapesjs [Grapes JS](https://www.grapesjs.com/ "Grapes Js")
 - Bootstrap 5 [Bootstrap 5](https://www.getbootstrap.com/ "Bootstrap 5")
 - Electron JS [Electron JS](https//www.electronjs.org/ "Electron Js")
-- Readyui [Readyui](https://readyui.co/ "Readyui")
 
 Show your support by 🌟 the project, thanks.
 

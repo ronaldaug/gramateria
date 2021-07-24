@@ -1,4 +1,4 @@
-import { publishToNetlify,exportZip } from './../helpers'
+import { publishToNetlify,exportZip,getGlobalJsCss } from './../helpers'
 import { Notyf } from 'notyf';
 
 
@@ -97,7 +97,7 @@ export default [{
         });
     
         const deployForm = document.querySelector('#deploy-form');
-        deployForm.addEventListener('submit', (e) => {
+        deployForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(document.querySelector('#deploy-form'));
             const SEO = Object.fromEntries(formData);
@@ -116,9 +116,10 @@ export default [{
             }
             localStorage.setItem('gram-seo', JSON.stringify(SEO));
     
-            let html = localStorage.getItem('gjs-html') || '';
-            let css = localStorage.getItem('gjs-css') || '';
-            const data = { token, title, description, html, css };
+            let html   = editor.getHtml() || '';
+            let css    = editor.getCss({ avoidProtected:true }) || '';
+            let global = await getGlobalJsCss();
+            const data = { token, title, description, html, css, global };
             publishToNetlify(data);
         })
 
@@ -162,7 +163,7 @@ export default [{
         });
     
         const exportForm = document.querySelector('#export-form');
-        exportForm.addEventListener('submit', (e) => {
+        exportForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(document.querySelector('#export-form'));
             const SEO = Object.fromEntries(formData);
@@ -177,9 +178,10 @@ export default [{
             }
             localStorage.setItem('gram-seo', JSON.stringify(SEO));
     
-            let html = localStorage.getItem('gjs-html') || '';
-            let css = localStorage.getItem('gjs-css') || '';
-            const data = { title, description, html, css };
+            let html   = editor.getHtml() || '';
+            let css    = editor.getCss({ avoidProtected:true }) || '';
+            let global = await getGlobalJsCss();
+            const data = { title, description, html, css, global };
             exportZip(data);
         })
 
