@@ -1,4 +1,10 @@
-import { publishToNetlify,exportZip,getGlobalJsCss } from './../helpers'
+import { 
+    prepareDeployContent, 
+    exportZip, 
+    getGlobalJsCss,
+    listOfSites,
+    toggleActiveOfDomainList
+} from './../helpers'
 import { Notyf } from 'notyf';
 
 
@@ -63,11 +69,12 @@ export default [{
 
         let modal = editor.Modal;
         modal.setTitle('Deploy');
-    
+
         const getSEO = localStorage.getItem('gram-seo');
         const { title, description, token } = getSEO ? JSON.parse(getSEO) : { title: '', description: '' };
-    
+
         const form = `
+            <div class="modal-message"></div>
             <form id="deploy-form" class="gram-form">
                 <div class="form-group">
                     <label>Website Title <span class="required">*</span></label>
@@ -83,19 +90,51 @@ export default [{
                     <label>Netlify Token <span class="required">*</span> <a target="_blank" href="https://app.netlify.com/user/applications#personal-access-tokens"><span class="fa fa-question"></span></a></label>
                     <input type="text" name="token" ${token ? 'value="' + token + '"' : ''} class="form-control">
                 </div>
+                <div class="form-group existing-form">
+                    <h4>Deploy to</h4> 
+                    <div class="deploy-type-radios">
+                        <input type="radio" name="deploy" value="new-site" checked> New site <input type="radio" value="existing" name="deploy"> Existing site
+                    </div>
+                    <div class="existing-sites hide">
+                        <b>Existing sites</b>
+                        ${listOfSites()}
+                    </div>
+                </div>
                 <div class="form-group">
-                    <button class="btn btn-primary"><span class="fa fa-upload"></span> Deploy</button>
+                    <button class="btn btn-primary deploy-btn"><span class="fa fa-upload"></span> Deploy</button>
                 </div>
             </form>
             `;
-    
+
         modal.setContent(form);
         modal.open({
             attributes: {
                 class: 'form-modal',
             }
         });
-    
+
+        const listenDeployCheck = () => {
+            const radios = document.querySelectorAll(".deploy-type-radios input[type='radio']");
+            radios.forEach(radio=>{
+                radio.addEventListener('change', (e)=>{
+                    
+                      if(!e.target.checked){
+                         return;
+                      }
+
+                      const existingSiteDiv = document.querySelector(".existing-sites");
+                      if(e.target.value === 'existing'){
+                         existingSiteDiv.classList.remove("hide");
+                      }else{
+                         existingSiteDiv.classList.add("hide");
+                     }
+                })
+            })
+        }
+        listenDeployCheck();
+
+        toggleActiveOfDomainList();
+
         const deployForm = document.querySelector('#deploy-form');
         deployForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -115,12 +154,22 @@ export default [{
                 return;
             }
             localStorage.setItem('gram-seo', JSON.stringify(SEO));
-    
-            let html   = editor.getHtml() || '';
-            let css    = editor.getCss({ avoidProtected:true }) || '';
+
+            const existingSiteDiv = document.querySelector(".existing-sites");
+            let type = existingSiteDiv.classList.contains('hide')?'POST':'PUT';
+            let html = editor.getHtml() || '';
+            let css = editor.getCss({ avoidProtected: true }) || '';
             let global = await getGlobalJsCss();
-            const data = { token, title, description, html, css, global };
-            publishToNetlify(data);
+            const data = { token, title, description, html, css, global, type};
+            if(type === 'PUT'){
+                let site_id = localStorage.getItem('gram-deploying-site');
+                if(!site_id){
+                    noty.error('You must check a site in existing sites.');
+                    return;
+                }
+                data.site_id = site_id;
+            }
+            prepareDeployContent(data);
         })
 
     },
@@ -135,10 +184,10 @@ export default [{
         sender.set('active', 0);
         let modal = editor.Modal;
         modal.setTitle('Export');
-    
+
         const getSEO = localStorage.getItem('gram-seo');
         const { title, description } = getSEO ? JSON.parse(getSEO) : { title: '', description: '' };
-    
+
         const form = `
             <form id="export-form" class="gram-form">
                 <div class="form-group">
@@ -154,14 +203,14 @@ export default [{
                 </div>
             </form>
             `;
-    
+
         modal.setContent(form);
         modal.open({
             attributes: {
                 class: 'form-modal',
             }
         });
-    
+
         const exportForm = document.querySelector('#export-form');
         exportForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -177,9 +226,9 @@ export default [{
                 return;
             }
             localStorage.setItem('gram-seo', JSON.stringify(SEO));
-    
-            let html   = editor.getHtml() || '';
-            let css    = editor.getCss({ avoidProtected:true }) || '';
+
+            let html = editor.getHtml() || '';
+            let css = editor.getCss({ avoidProtected: true }) || '';
             let global = await getGlobalJsCss();
             const data = { title, description, html, css, global };
             exportZip(data);

@@ -38,38 +38,106 @@ export const exportZip = (data) => {
         });
 }
 
-export const publishToNetlify = (data) => {
-    let zip = buildZipFolder(data)
-
-    zip.generateAsync({ type: "blob" })
-        .then(function (content) {
-            fetch('https://api.netlify.com/api/v1/sites', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/zip',
-                    'Authorization': 'Bearer '+data.token
-                },
-                body: content
-            }).then(e => e.json())
-                .then(res => {
-                    if(res){
-                        msg.success({
-                            duration:200000,
-                            message: 'URL - https://'+ res.subdomain+'.netlify.app',
-                            dismissible: true
-                        })
-                        msg.success({
-                            message: 'Successfully deployed'
-                        })
-                    }
-                }).catch(err=>{
-                    msg.error({
-                        message: String(err)
-                    })
-                })
-        })
+export const existingSites = () =>{
+    let sites = localStorage.getItem("gram-sites");
+    sites = sites?JSON.parse(sites):[];
+    return sites;
 }
 
+export const toggleActiveOfDomainList = () =>{
+    const removeActiveClass = () => {
+        const radios = document.querySelectorAll(".existing-sites input[name='deploy-domain']");
+        radios.forEach(e=>{
+            e.parentNode.classList.remove("active");
+        })
+    }
+
+    const allRadios = document.querySelectorAll(".existing-sites input[name='deploy-domain']");
+    allRadios.forEach(radio=>{
+        radio.addEventListener("change",e=>{
+            removeActiveClass();
+            if(e.target.checked){
+                localStorage.setItem('gram-deploying-site',e.target.parentNode.id);
+                e.target.parentNode.classList.add("active");
+            }
+        })
+    })
+}
+
+export const listOfSites = () =>{
+    let sites = existingSites();
+    if(sites.length == 0) return '';
+    let siteList = '<ul>';
+    siteList += sites.map(site=>{
+        return `<li id="${site.id}"><input name="deploy-domain" value="${site.id}" type="radio"> <a href="${site.domain}" target="_blank">${site.domain}</a> <span class="fa fa-trash remove-domain"></span></li>`;
+    }).join("");
+    siteList += '</ul>';
+    return siteList;
+}
+
+export const saveSites = (res) =>{
+    const domain = 'https://'+ res.subdomain+'.netlify.app';
+    const id = res.id;
+    const sites = existingSites();
+    sites.push({domain,id});
+    localStorage.setItem('gram-sites', JSON.stringify(sites))
+}
+
+export const deployToNetlify = (type,url,content) =>{
+    console.log(type,url,content);return;
+    fetch(url, {
+        method: type,
+        headers: {
+            'Content-Type': 'application/zip',
+            'Authorization': 'Bearer '+content.token
+        },
+        body: content
+    }).then(e => e.json())
+    .then(async (res) => {
+                
+            saveSites(res);
+
+            const status = type === 'POST'?'Deployed':'Updated';
+
+            modalMessage({
+                message:`${status} domain - <a href="https://${res.subdomain}.netlify.app" target="_blank">https://${res.subdomain}.netlify.app</a>`,
+                type:'success'
+            })
+        
+
+            msg.success({
+                message: 'Successfully '+status
+            })
+
+    }).catch(err=>{
+            msg.error({
+                message: String(err)
+            })
+    })
+}
+
+export const modalMessage = (obj) =>{
+    const modalMessage     = document.querySelector(".modal-message");
+    modalMessage.innerHTML = `<p class="msg-${obj.type}">${obj.message}</p>
+    <p style="text-align:center;"><small>Please close and re-open this modal.</small></p>`;
+    const gramForm     = document.querySelector(".gram-form");
+    gramForm.classList.add("hide");
+
+}
+
+export const prepareDeployContent = (data) => {
+    let zip = buildZipFolder(data);
+     zip.generateAsync({ type: "blob" })
+        .then(function (content) {
+
+            if(data.type === 'POST'){
+                deployToNetlify(data.type,'https://api.netlify.com/api/v1/sites',content);
+            }else{
+                deployToNetlify(data.type,'https://api.netlify.com/api/v1/sites/'+data.site_id,content);
+            }
+
+        })
+}
 
 export const loadingSpinner = () => {
 
