@@ -3,7 +3,10 @@ import {
     exportZip, 
     getGlobalJsCss,
     listOfSites,
-    toggleActiveOfDomainList
+    toggleActiveOfDomainList,
+    removeSite,
+    removeSiteFromNetlify,
+    getUrl
 } from './../helpers'
 import { Notyf } from 'notyf';
 
@@ -72,6 +75,9 @@ export default [{
 
         const getSEO = localStorage.getItem('gram-seo');
         const { title, description, token } = getSEO ? JSON.parse(getSEO) : { title: '', description: '' };
+        
+        // clear
+        localStorage.setItem('gram-deploying-site','');
 
         const form = `
             <div class="modal-message"></div>
@@ -91,9 +97,8 @@ export default [{
                     <input type="text" name="token" ${token ? 'value="' + token + '"' : ''} class="form-control">
                 </div>
                 <div class="form-group existing-form">
-                    <h4>Deploy to</h4> 
                     <div class="deploy-type-radios">
-                        <input type="radio" name="deploy" value="new-site" checked> New site <input type="radio" value="existing" name="deploy"> Existing site
+                        <input type="radio" name="deploy" value="new-site" checked> Create a new site <br /> <input type="radio" value="existing" name="deploy"> Update an existing site
                     </div>
                     <div class="existing-sites hide">
                         <b>Existing sites</b>
@@ -131,8 +136,47 @@ export default [{
                 })
             })
         }
-        listenDeployCheck();
 
+        const listenExistingSiteDelete = () =>{
+            const trashIcons = document.querySelectorAll(".existing-sites li span.remove-domain");
+            trashIcons.forEach(trash=>{
+                trash.addEventListener('click', (e)=>{
+
+                    if (!confirm('Are you sure to delete this site?')) {
+                        noty.success('Cancel delete');
+                        return;
+                    }
+
+
+                    let site_id = e.target.parentNode.id;
+                    let domain = e.target.parentNode.querySelector("a").href;
+                    const getSEO = localStorage.getItem('gram-seo');
+                    const { token } = getSEO ? JSON.parse(getSEO) : {};
+                    
+                     const data = {
+                         site_id,
+                         type:'DELETE'
+                     }
+
+                      let delete_data = {
+                          type:'DELETE',
+                          url:getUrl(data),
+                          token,
+                          domain
+                      }
+
+                      removeSiteFromNetlify(delete_data).then(()=>{
+                            removeSite(site_id);
+                          e.target.parentNode.remove();
+                      })
+
+
+                })
+            })
+        }
+
+        listenDeployCheck();
+        listenExistingSiteDelete();
         toggleActiveOfDomainList();
 
         const deployForm = document.querySelector('#deploy-form');
@@ -199,7 +243,7 @@ export default [{
                     <textarea name="description" class="form-control">${description || ''}</textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary"><span class="fa fa-download"></span> Export</button>
+                    <button class="btn btn-primary export-btn"><span class="fa fa-download"></span> Export</button>
                 </div>
             </form>
             `;

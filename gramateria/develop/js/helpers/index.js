@@ -44,6 +44,12 @@ export const existingSites = () =>{
     return sites;
 }
 
+export const removeSite = (id) =>{
+    let sites = existingSites();
+    sites = sites.filter(e=>e.id !== id);
+    localStorage.setItem("gram-sites",JSON.stringify(sites));
+}
+
 export const toggleActiveOfDomainList = () =>{
     const removeActiveClass = () => {
         const radios = document.querySelectorAll(".existing-sites input[name='deploy-domain']");
@@ -66,7 +72,7 @@ export const toggleActiveOfDomainList = () =>{
 
 export const listOfSites = () =>{
     let sites = existingSites();
-    if(sites.length == 0) return '';
+    if(sites.length == 0) return '<br /><small>No existing site yet.</small>';
     let siteList = '<ul>';
     siteList += sites.map(site=>{
         return `<li id="${site.id}"><input name="deploy-domain" value="${site.id}" type="radio"> <a href="${site.domain}" target="_blank">${site.domain}</a> <span class="fa fa-trash remove-domain"></span></li>`;
@@ -83,28 +89,67 @@ export const saveSites = (res) =>{
     localStorage.setItem('gram-sites', JSON.stringify(sites))
 }
 
-export const deployToNetlify = (type,url,content) =>{
-    console.log(type,url,content);return;
-    fetch(url, {
+export const removeSiteFromNetlify = ({type,url,token,domain}) => {
+    return new Promise((resolve,reject)=>{
+        const options = {
+            method:type,
+            headers:{
+                "Authorization":"Bearer "+token
+            }
+        }
+        fetch(url, options)
+        .then((res) => {
+            if(!res.ok) {
+                msg.error({
+                    message: 'Something went wrong in deleting domain!'
+                })
+                return;
+            };
+
+                modalMessage({
+                    message:`Deleted - ${domain}`,
+                    type:'success'
+                })
+                
+                resolve('deleted');
+                msg.success({
+                    message: 'Successfully deleted!'
+                })
+
+            }).catch(err=>{
+            reject(String(err))
+                msg.error({
+                    message: String(err)
+                })
+        })
+    })
+}
+
+export const deployToNetlify = ({type,url,content,token}) =>{
+    
+    let options = {
         method: type,
         headers: {
             'Content-Type': 'application/zip',
-            'Authorization': 'Bearer '+content.token
+            'Authorization': 'Bearer '+token
         },
         body: content
-    }).then(e => e.json())
+    };
+    
+    fetch(url, options).then(e => e.json())
     .then(async (res) => {
                 
-            saveSites(res);
+            if(type == 'POST'){
+                saveSites(res);
+            }
 
-            const status = type === 'POST'?'Deployed':'Updated';
+            let status = type === 'POST'?'Deployed':'Updated';
 
             modalMessage({
                 message:`${status} domain - <a href="https://${res.subdomain}.netlify.app" target="_blank">https://${res.subdomain}.netlify.app</a>`,
                 type:'success'
             })
         
-
             msg.success({
                 message: 'Successfully '+status
             })
@@ -125,16 +170,30 @@ export const modalMessage = (obj) =>{
 
 }
 
+export const getUrl = ({type,site_id}) =>{
+    if(type == 'POST'){
+        return 'https://api.netlify.com/api/v1/sites';
+    }else{
+        return 'https://api.netlify.com/api/v1/sites/'+site_id;
+    }
+}
+
 export const prepareDeployContent = (data) => {
+
+    const {type,token} = data;
     let zip = buildZipFolder(data);
      zip.generateAsync({ type: "blob" })
         .then(function (content) {
 
-            if(data.type === 'POST'){
-                deployToNetlify(data.type,'https://api.netlify.com/api/v1/sites',content);
-            }else{
-                deployToNetlify(data.type,'https://api.netlify.com/api/v1/sites/'+data.site_id,content);
+            let url = getUrl(data);
+            const deploy = {
+                type,
+                url,
+                content,
+                token
             }
+
+            deployToNetlify(deploy);
 
         })
 }

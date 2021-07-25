@@ -378,6 +378,11 @@ html {
   cursor: pointer;
 }
 
+.gram-form .export-btn,
+.gram-form .deploy-btn {
+  margin-bottom: 20px;
+}
+
 /* Overwrite GrapeJS css */
 .gjs-cm-editor#gjs-cm-css #gjs-cm-title,
 .gjs-cm-editor#gjs-cm-htmlmixed #gjs-cm-title,
