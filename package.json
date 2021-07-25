@@ -1,8 +1,8 @@
 {
   "name": "gramateria",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "private": true,
-  "description": "Open source drag and drop website builder",
+  "description": "Open source drag and drop website builder with bootstrap 5",
   "main": "index.js",
   "scripts": {
     "gen": "mix",
@@ -16,7 +16,6 @@
     "gramateria",
     "webite",
     "grapejs",
-    "materialize",
     "builder",
     "drag and drop"
   ],
