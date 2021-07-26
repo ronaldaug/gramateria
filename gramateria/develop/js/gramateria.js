@@ -1,11 +1,20 @@
 import blockManager from './config/blockManager'
 import styleManager from './config/styleManager'
+import customScripts from './config/customScripts'
 import {addLocal, getLocal} from './helpers/index'
 import assetManager from './config/assetManager'
 import buttons from './config/buttons'
 import { checkExtension, loadingSpinner } from './helpers/index.js'
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css'; // for React, Vue and Svelte
+
+// Section that has dependency
+let sectionDependencies = [
+    {
+        name:'testimonial',
+        dependencies:['splidejs']
+    }
+]
 
 class Gramateria {
     constructor() {
@@ -271,19 +280,17 @@ class Gramateria {
      
     }
 
-    addDependencies = (dependency) =>{
+    addDependency = (dependency) =>{
 
-        // Toto - must add specific dependency only
-        if(dependency === 'testimonial'){
             let doc = this.editor.Canvas.getDocument();
             const appendDependency = () => {
                 return new Promise((resolve,reject)=>{
                   
                   let dependencies = getLocal('gram-dependencies');                  
-                  let isExit = dependencies.filter(d=>d.name === 'splidejs');
+                  let isExit = dependencies.filter(d=>d.name === dependency);
       
                   if(isExit.length !== 0){
-                     resolve('grapesjs_exit');
+                     resolve(dependency);
                      return;
                   }
       
@@ -311,17 +318,12 @@ class Gramateria {
                 })
               }
       
-              appendDependency().then((msg)=>{
-                if(msg === 'grapesjs_exit') return;
+              appendDependency().then((dep)=>{
+                if(dep === dependency) return;
                 setTimeout(()=>{
                     const customScript = document.createElement("script");
-                    customScript.innerHTML = `new Splide('#splide', {
-                      type   : 'loop',
-                      perPage: 3,
-                      focus  : 'center',
-                      pagination: false
-                    }).mount();`;
-                    customScript.className = 'splidejs-script';
+                    customScript.innerHTML = customScripts(dependency);
+                    customScript.className = `${dependency}-script`;
                     doc.body.appendChild(customScript);
                     let custom = customScript.innerHTML;
       
@@ -336,42 +338,41 @@ class Gramateria {
                           addLocal('gjs-scripts',customScriptArr);
                     }
       
-                    storeCustomScripts('splidejs',custom);
+                    storeCustomScripts(dependency,custom);
       
                 },2000)
-              })
-        }
-        
+              })        
     }
 
-    removeDependencies (dependency){
+    removeDependency (dependency){
 
-        // Delete testimonial
-        if(dependency == 'testimonial'){
+        let doc = this.editor.Canvas.getDocument();
+        let dependencies = getLocal('gram-dependencies');
+        if(dependencies.length == 0) return;
 
-            // Toto - must delete specific dependency only
-            let doc = this.editor.Canvas.getDocument();
-            let dependencies = getLocal('gram-dependencies');
-            if(dependencies.length > 0){
-                for(let dp of dependencies){
-                    let allScripts = doc.querySelectorAll(`.${dp.name}-script`);
-                    allScripts.forEach(e=>e.outerHTML = '')
-                }
-                
-                dependencies = dependencies.filter(d=>d.name !== 'splidejs');
-                addLocal('gram-dependencies',dependencies);
-                
-                let customScript = getLocal('gjs-scripts');
-                    customScript = customScript.filter(c=>c.name !== 'splidejs');
-                    addLocal('gjs-scripts',customScript);
-            }
+        for(let dp of dependencies){
+            let allScripts = doc.querySelectorAll(`.${dp.name}-script`);
+            allScripts.forEach(e=>e.outerHTML = '')
         }
+        
+        dependencies = dependencies.filter(d=>d.name !== dependency);
+        addLocal('gram-dependencies',dependencies);
+        
+        let customScript = getLocal('gjs-scripts');
+            customScript = customScript.filter(c=>c.name !== dependency);
+            addLocal('gjs-scripts',customScript);
     }
 
     listenAddDependencies = () =>{
 
         this.editor.on('component:add', component => {
-                this.addDependencies(component.attributes.attributes.id);
+            let section = component.attributes.attributes.id;
+
+            let hasDependency = sectionDependencies.filter(e=>e.name === section);
+            if(hasDependency.length !== 0){
+                let dependency = hasDependency[0].dependencies[0];
+                this.addDependency(dependency);
+            }
         });
 
         
@@ -379,7 +380,12 @@ class Gramateria {
 
     listenRemoveDependencies = () =>{
         this.editor.on('component:remove', component => {
-                this.removeDependencies(component.attributes.attributes.id);
+            let section = component.attributes.attributes.id;
+            let hasDependency = sectionDependencies.filter(e=>e.name === section);
+            if(hasDependency.length !== 0){
+                let dependency = hasDependency[0].dependencies[0];
+                this.removeDependency(dependency);
+            }
         });
     }
 
