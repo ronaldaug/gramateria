@@ -7,7 +7,15 @@ export default (dependency) => {
             type   : 'loop',
             perPage: 3,
             focus  : 'center',
-            pagination: false
+            pagination: false,
+            breakpoints: {
+                768: {
+                    perPage: 2,
+                },
+                576:{
+                    perPage:1
+                }
+            }
         }).mount();`
         }
     ]
