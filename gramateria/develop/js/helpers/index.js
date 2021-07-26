@@ -10,6 +10,17 @@ const msg = new Notyf({
     }
 });
 
+
+export const getLocal = (key) =>{
+    let localData = localStorage.getItem(key);
+    localData = localData ? JSON.parse(localData) : [];
+    return localData;
+}
+
+export const addLocal = (key,content) =>{
+    localStorage.setItem(key, JSON.stringify(content || []) );
+}
+
 export const checkExtension = (fname) => {
     let ext = /^.+\.([^.]+)$/.exec(fname);
     return ext == null ? "" : ext[1];
@@ -23,8 +34,15 @@ const buildZipFolder = (data) => {
     css.file("style.css", data.css);
     css.file("global.css", data.global.css);
 
+    let customScripts = getLocal('gjs-scripts');
+        customScripts = customScripts.length > 0 ? customScripts.map(c=>c.script+'\n').join('\n') : '';
+
+        customScripts = `window.addEventListener('DOMContentLoaded', () => {
+            ${customScripts}
+        })`;
+
     let js = zip.folder("js");
-    js.file("script.js", `// all your script goes here `);
+    js.file("script.js", customScripts);
     js.file("global.js", data.global.js);
     return zip;
 }
@@ -39,15 +57,13 @@ export const exportZip = (data) => {
 }
 
 export const existingSites = () =>{
-    let sites = localStorage.getItem("gram-sites");
-    sites = sites?JSON.parse(sites):[];
-    return sites;
+    return getLocal("gram-sites");
 }
 
 export const removeSite = (id) =>{
     let sites = existingSites();
     sites = sites.filter(e=>e.id !== id);
-    localStorage.setItem("gram-sites",JSON.stringify(sites));
+    addLocal("gram-sites",sites);
 }
 
 export const toggleActiveOfDomainList = () =>{
@@ -86,7 +102,7 @@ export const saveSites = (res) =>{
     const id = res.id;
     const sites = existingSites();
     sites.push({domain,id});
-    localStorage.setItem('gram-sites', JSON.stringify(sites))
+    addLocal('gram-sites',sites)
 }
 
 export const removeSiteFromNetlify = ({type,url,token,domain}) => {

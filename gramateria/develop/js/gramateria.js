@@ -1,6 +1,6 @@
 import blockManager from './config/blockManager'
 import styleManager from './config/styleManager'
-// import commands from './config/commands'
+import {addLocal, getLocal} from './helpers/index'
 import assetManager from './config/assetManager'
 import buttons from './config/buttons'
 import { checkExtension, loadingSpinner } from './helpers/index.js'
@@ -17,7 +17,7 @@ class Gramateria {
                 y: 'top'
             }
         });
-        this.editor = grapesjs.init({
+        this.config = {
             allowScripts: 1,
             showOffsets: 1,
             autorender: 0,
@@ -54,10 +54,9 @@ class Gramateria {
                 storeHtml: 1,
                 storeCss: 1,
             }
-        });
+        }
 
-        this.editor.Panels.addButton('options', buttons);
-        this.modal = this.editor.Modal;
+        this.appendDependencies();
 
     }
 
@@ -239,10 +238,159 @@ class Gramateria {
         return codeEditor;
     }
 
+    appendDependencies (){
+
+        let dependencies = getLocal("gram-dependencies");
+
+        let links   = dependencies.map(d=>d.css);
+        let scripts = dependencies.map(d=>d.js);
+
+        // Append dependencies 
+
+        for(let l of links){      
+            this.config.canvas.styles.push(l);
+        }
+
+       for(let s of scripts){
+            this.config.canvas.scripts.push(s);
+        }
+
+    }
+
+    
+    runCustomScript = () =>{
+        // Append Custom Script
+       let doc = this.editor.Canvas.getDocument();
+       let gjsScripts = getLocal("gjs-scripts");
+       for(let s of gjsScripts){
+        const scriptEl     = document.createElement('script');
+         scriptEl.className = `${s.name}-script`;
+         scriptEl.innerHTML = s.script;
+         doc.body.appendChild(scriptEl);
+       }
+     
+    }
+
+    addDependencies = (dependency) =>{
+
+        // Toto - must add specific dependency only
+        if(dependency === 'testimonial'){
+            let doc = this.editor.Canvas.getDocument();
+            const appendDependency = () => {
+                return new Promise((resolve,reject)=>{
+                  
+                  let dependencies = getLocal('gram-dependencies');                  
+                  let isExit = dependencies.filter(d=>d.name === 'splidejs');
+      
+                  if(isExit.length !== 0){
+                     resolve('grapesjs_exit');
+                     return;
+                  }
+      
+                  const link     = document.createElement("link");
+                  link.rel       = 'stylesheet';
+                  link.className = 'splidejs-script';
+                  link.href      = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css';
+                  doc.head.appendChild(link)
+      
+                  const script     = document.createElement("script");
+                  script.src       = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js';
+                  script.className = 'splidejs-script';
+                  doc.body.appendChild(script);
+      
+                  dependencies.push({
+                    name:'splidejs',
+                    js:script.src,
+                    css:link.href
+                  })
+      
+                  addLocal('gram-dependencies',dependencies)
+      
+                  resolve('done');
+      
+                })
+              }
+      
+              appendDependency().then((msg)=>{
+                if(msg === 'grapesjs_exit') return;
+                setTimeout(()=>{
+                    const customScript = document.createElement("script");
+                    customScript.innerHTML = `new Splide('#splide', {
+                      type   : 'loop',
+                      perPage: 3,
+                      focus  : 'center',
+                      pagination: false
+                    }).mount();`;
+                    customScript.className = 'splidejs-script';
+                    doc.body.appendChild(customScript);
+                    let custom = customScript.innerHTML;
+      
+                   const storeCustomScripts = (name,script) =>{
+                      
+                      let customScriptArr = getLocal('gjs-scripts');                      
+                          customScriptArr.push({
+                            name,
+                            script
+                          })
+                          
+                          addLocal('gjs-scripts',customScriptArr);
+                    }
+      
+                    storeCustomScripts('splidejs',custom);
+      
+                },2000)
+              })
+        }
+        
+    }
+
+    removeDependencies (dependency){
+
+        // Delete testimonial
+        if(dependency == 'testimonial'){
+
+            // Toto - must delete specific dependency only
+            let doc = this.editor.Canvas.getDocument();
+            let dependencies = getLocal('gram-dependencies');
+            if(dependencies.length > 0){
+                for(let dp of dependencies){
+                    let allScripts = doc.querySelectorAll(`.${dp.name}-script`);
+                    allScripts.forEach(e=>e.outerHTML = '')
+                }
+                
+                dependencies = dependencies.filter(d=>d.name !== 'splidejs');
+                addLocal('gram-dependencies',dependencies);
+                
+                let customScript = getLocal('gjs-scripts');
+                    customScript = customScript.filter(c=>c.name !== 'splidejs');
+                    addLocal('gjs-scripts',customScript);
+            }
+        }
+    }
+
+    listenAddDependencies = () =>{
+
+        this.editor.on('component:add', component => {
+                this.addDependencies(component.attributes.attributes.id);
+        });
+
+        
+    }
+
+    listenRemoveDependencies = () =>{
+        this.editor.on('component:remove', component => {
+                this.removeDependencies(component.attributes.attributes.id);
+        });
+    }
+
     init() {
+        this.editor = grapesjs.init(this.config);
+        this.editor.Panels.addButton('options', buttons);
+        this.modal = this.editor.Modal;
         this.codeImportModal();
         this.editor.Panels.removeButton('options', 'export-template');
         this.editor.on('load', (editor) => {
+
             editor.Panels.getButton('views', 'open-blocks').set('active', true)
             editor.BlockManager.getCategories().each((ctg) => {
                 if (ctg.attributes.id === 'Sections') {
@@ -276,11 +424,16 @@ class Gramateria {
                 } else {
                     traitsProps.style.display = 'none';
                 }
+
             });
+
+            this.runCustomScript();
         });
 
         this.editor.getWrapper().addClass('iframe-wrapper');
         this.editor.render();
+        this.listenAddDependencies();
+        this.listenRemoveDependencies();
     }
 }
 

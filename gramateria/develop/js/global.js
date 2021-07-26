@@ -1,3 +1,5 @@
+window.addEventListener('DOMContentLoaded', () => {
+
 /*----------------------------------
 Smooth scroll to sections
 ------------------------------------*/
@@ -24,3 +26,5 @@ const listenAllA = (alllinks) => {
 }
 
 listenAllA(allAnchors);
+
+})

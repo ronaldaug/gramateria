@@ -143,5 +143,86 @@ export default [
           </div>
         </div>
       </section>`
+    },
+    {
+      id:'section-testimonial',
+      label:'Testimonial',
+      name:'section-testimonial',
+      category:'Sections',
+      attributes:{
+         class:'fa fa-th'
+      },
+      content:`<section id="testimonial">
+      <div class="section-header container">
+          <h3 class="display-6 p-4 text-uppercase">Testimonials</h3>
+        </div>
+        <div class="container-fluit">
+       
+          <div id="splide" class="splide">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide py-5 px-4 m-4 rounded shadow bg-white">
+                  <div class="testimonial text-center">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle avatar p-1" width="58" alt="">
+                    <p class="my-2"><b>John Doe</b><br><small>Backend developer</small></p>
+                    <div class="my-2"><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span></div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium voluptates ut ad laudantium.</p>
+                  </div>
+                  <span class="fa fa-quote-left fa-3x text-muted"></span>
+                </li>
+                <li class="splide__slide py-5 px-4 m-4 rounded shadow bg-white">
+                  <div class="testimonial text-center">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle avatar p-1" width="58" alt="">
+                    <p class="my-2"><b>Steve</b><br><small>Co-founder of company</small></p>
+                    <div class="my-2"><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span></div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium voluptates ut ad laudantium.</p>
+                  </div>
+                  <span class="fa fa-quote-left fa-3x text-muted"></span>
+                </li>
+                <li class="splide__slide py-5 px-4 m-4 rounded shadow bg-white">
+                  <div class="testimonial text-center">
+                      <img src="https://randomuser.me/api/portraits/women/31.jpg" class="rounded-circle avatar p-1" width="58" alt="">
+                    <p class="my-2"><b>Jessica</b><br><small>Product Manager</small></p>
+                    <div class="my-2"><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span><span class="fa fa-star mx-2 text-primary"></span></div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium voluptates ut ad laudantium.</p>
+                  </div>
+                  <span class="fa fa-quote-left fa-3x text-muted"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      <style>
+      #testimonial .splide{
+        height:400px;
+      }
+      #testimonial .splide__slide{
+        opacity:0.3;
+        position:relative;
+      }
+      #testimonial .splide__slide.is-active{
+         opacity:1;
+      }
+      #testimonial .avatar{
+        border:1px solid var(--theme-color);
+      }
+      
+      #testimonial .splide__slide .fa-quote-left{
+        position:absolute;
+        top:54px;
+        left:40px;
+        opacity:0.2;
+      }
+      #testimonial .splide__arrows .splide__arrow{
+        top:-1rem;
+        background:#fff;
+      }
+      #testimonial .splide__arrows .splide__arrow--prev{
+          left:auto;
+          right:4rem;
+      }
+      </style>`
     }
 ]

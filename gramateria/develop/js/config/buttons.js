@@ -57,6 +57,8 @@ export default [{
                 localStorage.setItem('gjs-html', '');
                 localStorage.setItem('gjs-css', '');
                 localStorage.setItem('gjs-styles', '');
+                localStorage.removeItem('gjs-scripts','');
+                localStorage.removeItem('gram-dependencies','');
             }, 0);
         }
     },
