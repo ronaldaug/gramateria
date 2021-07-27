@@ -303,6 +303,40 @@ export default [
       </style>`
   },
   {
+    id:'section-brands',
+    label:'Brands',
+    category: 'Sections',
+    attributes: {
+       class: 'fa fa-ellipsis-h'
+    },
+    content:`<section id="brands" class="bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 text-center">
+           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/google.svg" alt="Google"><p class="text-muted mt-2">Google</p>
+        </div>
+        <div class="col-lg-2 col-md-3 text-center">
+           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/google.svg" alt="Nike"><p class="text-muted mt-2">Nike</p>
+        </div>
+        <div class="col-lg-2 col-md-3 text-center">
+           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/apple.svg" alt="Apple"><p class="text-muted mt-2">Apple</p>
+        </div>
+        <div class="col-lg-2 col-md-3 text-center">
+           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/ibm.svg" alt="IBM"><p class="text-muted mt-2">IBM</p>
+        </div>
+        <div class="col-lg-2 col-md-3 text-center">
+           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/uber.svg" alt="Uber"><p class="text-muted mt-2">Uber</p>
+        </div>
+        <div class="col-lg-2 col-md-3 text-center">
+           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/window.svg" alt="Window"><p class="text-muted mt-2">Window</p>
+        </div>
+      </div>
+    </div>
+  </section><style>#brands img{
+    opacity:0.3;
+ }</style>`
+  },
+  {
     id: 'section-footer',
     label: 'Footer',
     category: 'Sections',
