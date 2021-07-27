@@ -1,6 +1,6 @@
 # Gramateria - v1.0.6 
 
-Gramateria a drag and drop web builder built with GrapesJS but with a different look, blocks and components. And v1.0.6 is using Bootstrap 5, can generate a Desktop app with ElectronJS and can deploy to Netlify.
+Gramateria a drag and drop web builder which is built with GrapesJS but with a different look, blocks and components. And v1.0.6 is using Bootstrap 5, can generate a Desktop app with ElectronJS and can deploy to Netlify.
 
 ----
 
