@@ -1,0 +1,32 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+.fa::before {
+    -webkit-text-stroke: .5px #fff
+}
+
+.form-modal .gjs-mdl-dialog{
+    max-width:500px;
+}
+
+.btn{
+    transition:all ease 0.3s;
+    padding:10px 30px;
+    border:1px solid transparent;
+    background:#fff;
+    box-shadow:0 1px 10px #dddddd9c;
+    border-radius:4px;
+}
+
+.btn:hover{
+    cursor:pointer;
+    background:var(--theme-color);
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.required{
+    color:red;
+}

@@ -1,0 +1,18 @@
+body{
+    background:#eaf3fe !important;
+    font-family: 'Roboto', sans-serif;
+    font-size:1.1rem;
+}
+
+section{
+    padding:100px 0 100px;
+}
+
+@media(max-width:768px){
+    body{
+        margin:10px;
+    }
+    section{
+        padding:50px 0 50px;
+    }
+}

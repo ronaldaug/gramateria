@@ -1,0 +1,106 @@
+.gram-form .form-group label{
+    display:block;
+}
+
+.gram-form .form-control{
+    width:100%;
+    clear:both;
+    margin:10px 0 10px;
+}
+
+.gram-form input.form-control{
+    height:30px;
+    border:1px solid #ddd;
+}
+
+
+.gram-form textarea.form-control{
+    min-height:60px;
+    border:1px solid #ddd;
+}
+
+.gram-form h4{
+    margin:10px 0;
+}
+
+.hide{
+    display:none;
+}
+
+.gram-form .existing-sites,
+.gram-form .deploy-btn{
+    margin-top:20px;
+}
+
+.gram-form textarea.form-control:active,
+.gram-form textarea.form-control:focus,
+.gram-form input.form-control:active,
+.gram-form input.form-control:focus{
+    box-shadow:none;
+    border:none;
+    outline:none;
+    border:1px solid var(--theme-color);
+}
+
+
+/** Modal Message **/
+.modal-message p.msg-success {
+    font-size:.85rem;
+    padding:10px;
+    background:var(--theme-color);
+    color:#fff;
+}
+
+.modal-message p.msg-error {
+    padding:10px;
+    background:#ffa5a5;
+    color:#fff;
+}
+
+.modal-message p.msg-success span.fa{
+    background:#fff;
+    padding:2px;
+    float:right;
+    color:#444;
+}
+
+.modal-message p.msg-success span.fa:hover{
+    cursor:pointer;
+}
+
+.existing-sites ul{
+    padding:0;
+    list-style:none;
+}
+
+.existing-sites ul li{
+    background:#fff;
+    padding:4px;
+    margin:4px 0 4px;
+    transition:all ease 0.4s;
+    border:2px solid transparent;
+}
+
+.existing-sites ul li.active{
+    border:2px solid var(--theme-color);
+}
+
+.existing-sites ul li input{
+    margin-right:10px;
+}
+
+.existing-sites ul li span.fa-trash{
+    float:right;
+    padding:2px;
+    color:var(--theme-color);
+    border:1px solid var(--theme-color);
+}
+
+.existing-sites ul li span.fa-trash:hover{
+     cursor:pointer;
+}
+
+.gram-form .export-btn,
+.gram-form .deploy-btn{
+    margin-bottom:20px;
+}
