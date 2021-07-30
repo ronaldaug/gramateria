@@ -227,7 +227,7 @@ export default [
     label: 'Testimonial',
     category: 'Sections',
     attributes: {
-      class: 'fa fa-th'
+      class: 'fa fa-sitemap'
     },
     content: `<section id="testimonial">
       <div class="section-header container">
@@ -313,28 +313,230 @@ export default [
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-md-3 text-center">
-           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/google.svg" alt="Google"><p class="text-muted mt-2">Google</p>
+          <p class="text-muted mb-2">Google</p><img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/google.svg" alt="Google">
         </div>
         <div class="col-lg-2 col-md-3 text-center">
-           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/google.svg" alt="Nike"><p class="text-muted mt-2">Nike</p>
+          <p class="text-muted mb-2">Nike</p><img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/google.svg" alt="Nike">
         </div>
         <div class="col-lg-2 col-md-3 text-center">
-           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/apple.svg" alt="Apple"><p class="text-muted mt-2">Apple</p>
+          <p class="text-muted mb-2">Apple</p><img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/apple.svg" alt="Apple">
         </div>
         <div class="col-lg-2 col-md-3 text-center">
-           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/ibm.svg" alt="IBM"><p class="text-muted mt-2">IBM</p>
+          <p class="text-muted mb-2">IBM</p><img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/ibm.svg" alt="IBM">
         </div>
         <div class="col-lg-2 col-md-3 text-center">
-           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/uber.svg" alt="Uber"><p class="text-muted mt-2">Uber</p>
+          <p class="text-muted mb-2">Uber</p><img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/uber.svg" alt="Uber">
         </div>
         <div class="col-lg-2 col-md-3 text-center">
-           <img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/window.svg" alt="Window"><p class="text-muted mt-2">Window</p>
+          <p class="text-muted mb-2">Window</p><img src="https://cdn.statically.io/gh/ronaldaug/gramateria/refactor/gramateria/develop/svg/brands/window.svg" alt="Window">
         </div>
       </div>
     </div>
   </section><style>#brands img{
     opacity:0.3;
  }</style>`
+  },
+  {
+    id:'section-contact',
+    label:'Contact',
+    category:'Sections',
+    attributes:{
+      class:'fa fa-envelope'
+    },
+    content:`<section id="contact" class="bg-white">
+    <div class="container shadow p-5">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="address p-4 rounded shadow bg-primary text-white d-flex flex-column align-items-center justify-content-center">
+               <h2 class="text-uppercase my-4">We love to hear from you</h2>
+            <div class="mb-4 border border-1 border-top border-white" style="width:100px;"></div>
+             <p>HUTCHINSON</p>
+              <p>	4663 Sunny Day Drive</p>
+            <p>714-778-6685</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-form p-4">
+            <form id="contactForm" action="#" novalidate>
+              <div class="validate-message"></div>
+              <div class="form-group is-invalid my-3">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" name="name" required>
+   <div class="invalid-feedback">Name is required</div>
+              </div>
+              <div class="form-group my-3">
+                 <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="email" required><div class="invalid-feedback">Email is required</div></div>
+              <div class="form-group my-3">
+                <label for="phone">Phone <small class="text-muted">- optional</small></label>
+                <input type="text" id="phone" class="form-control" name="phone"></div>
+              <div class="form-group my-3">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" class="form-control" required></textarea><div class="invalid-feedback">Message is required</div></div>
+              <div class="form-group my-3 d-flex justify-content-end">
+                <button class="btn btn-primary btn-lg">
+                  <span class="fa fa-envelope-o me-2"></span>Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><style>.address{
+      height:500px;
+    }
+    
+    .contact-form .form-group .form-control{
+      border:0;
+      padding:4px 0;
+      border-bottom:1px solid #ddd;
+      border-radius:0;
+    }
+    
+    .contact-form .form-group .form-control:focus{
+      outline:none;
+      box-shadow:none;
+      border-bottom:1px solid #0d6efd;
+    }
+    
+    .contact-form .form-group textarea{
+      min-height:120px;
+    }</style>`
+  },
+  {
+    id:'section-parallax',
+    label:'Parallax',
+    category:'Sections',
+    attributes:{
+      class:"fa fa-copy"
+    },
+    content:`<section id="parallax" class="parallax">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="parallax-content p-4 shadow bg-white rounded text-center">
+            
+         
+          <h2>Title text</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae repellendus maiores enim dolore nesciunt!</p>
+             </div>
+        </div>
+      </div>
+    </div>
+  </section><style>
+  .parallax-content{
+    height:200px;
+   opacity:0.8;
+   margin-top:150px;
+ }
+ 
+ .parallax {
+   /* The image used */
+   background-image: url("https://picsum.photos/1500");
+ 
+   /* Set a specific height */
+   min-height: 500px;
+ 
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+  </style>`
+  },
+  {
+    id:'section-team',
+    label:'Team',
+    category:'Sections',
+    attributes:{
+      class:'fa fa-th'
+    },
+    content:`<div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center">OUR AMAZING TEAM</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+  
+        <div class="box p-3 shadow bg-white rounded my-3">
+          <div class="row">
+            <div class="col-4">
+              <img src="https://res.cloudinary.com/dpnea22ek/image/upload/v1627660134/user1.png" alt="" width="100%">
+            </div>
+            <div class="col-8">
+              <h4>Peter J. Lamy</h4>
+              <p class="my-2"><small>Software Developer</small></p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet.</p>
+              <div class="social-icons">
+                <a href="#" class="me-2"><span class="fa fa-facebook"></span></a><a href="#" class="me-2"><span class="fa fa-instagram"></span></a><a href="#" class="me-2"><span class="fa fa-twitter"></span></a><a href="#" class="me-2"><span class="fa fa-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+       <div class="col-6">
+  
+        <div class="box p-3 shadow bg-white rounded my-3">
+          <div class="row">
+            <div class="col-4">
+              <img src="https://res.cloudinary.com/dpnea22ek/image/upload/v1627660145/user4.png" alt="" width="100%">
+            </div>
+            <div class="col-8">
+              <h4>June D. Smith</h4>
+              <p class="my-2"><small>Product Manager</small></p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet.</p>
+              <div class="social-icons">
+                <a href="#" class="me-2"><span class="fa fa-facebook"></span></a><a href="#" class="me-2"><span class="fa fa-instagram"></span></a><a href="#" class="me-2"><span class="fa fa-twitter"></span></a><a href="#" class="me-2"><span class="fa fa-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+       <div class="col-6">
+  
+        <div class="box p-3 shadow bg-white rounded my-3">
+          <div class="row">
+            <div class="col-4">
+              <img src="https://res.cloudinary.com/dpnea22ek/image/upload/v1627660134/user3.png" alt="" width="100%">
+            </div>
+            <div class="col-8">
+              <h4>Dianna C. Avila</h4>
+              <p class="my-2"><small>Graphic Designer</small></p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet.</p>
+              <div class="social-icons">
+                <a href="#" class="me-2"><span class="fa fa-facebook"></span></a><a href="#" class="me-2"><span class="fa fa-instagram"></span></a><a href="#" class="me-2"><span class="fa fa-twitter"></span></a><a href="#" class="me-2"><span class="fa fa-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+       <div class="col-6">
+  
+        <div class="box p-3 shadow bg-white rounded my-3">
+          <div class="row">
+            <div class="col-4">
+              <img src="https://res.cloudinary.com/dpnea22ek/image/upload/v1627660147/user2.png" alt="" width="100%">
+            </div>
+            <div class="col-8">
+              <h4>Robert C. Young</h4>
+              <p class="my-2"><small>Web Designer</small></p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet.</p>
+              <div class="social-icons">
+                <a href="#" class="me-2"><span class="fa fa-facebook"></span></a><a href="#" class="me-2"><span class="fa fa-instagram"></span></a><a href="#" class="me-2"><span class="fa fa-twitter"></span></a><a href="#" class="me-2"><span class="fa fa-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  </div>`
   },
   {
     id: 'section-footer',

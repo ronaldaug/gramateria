@@ -37,8 +37,18 @@ Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 - Added new blocks
 - Add Notyf for toast messages
 - Remove Gapesjs export plugin 
+- Remove dashboard version in v1.0.4 which was built with vue.js, element UI and firebase. [reason of removing dashboard](#remove-message)
 
 
+#### Reason of removing dashboard
+<a name="remove-message"></a>
+Because making Gramateria to compatible with Vue, ElementUI and Firebase versions is not an easy task for me. And I want to keep Gramateria as a desktop based app.
+
+#### Roadmap
+- Add more blocks
+- Make it available for linux and window. 
+- Add more SEO tags
+- Build multiple pages 
 ### Credits
 - Grapesjs [Grapes JS](https://www.grapesjs.com/ "Grapes Js")
 - Bootstrap 5 [Bootstrap 5](https://www.getbootstrap.com/ "Bootstrap 5")

@@ -13,6 +13,18 @@ let sectionDependencies = [
     {
         name:'testimonial',
         dependencies:['splidejs']
+    },
+    {
+        name:'contact',
+        dependencies:['contactjs']
+    }
+]
+
+const dependencyScripts = [
+    {
+        name:'splidejs',
+        css:'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css',
+        js:'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js'
     }
 ]
 
@@ -287,29 +299,33 @@ class Gramateria {
                 return new Promise((resolve,reject)=>{
                   
                   let dependencies = getLocal('gram-dependencies');                  
-                  let isExit = dependencies.filter(d=>d.name === dependency);
+                  let isDependencyExit = dependencies.filter(d=>d.name === dependency);
       
-                  if(isExit.length !== 0){
+                  if(isDependencyExit.length !== 0){
                      resolve(dependency);
                      return;
                   }
       
-                  const link     = document.createElement("link");
-                  link.rel       = 'stylesheet';
-                  link.className = 'splidejs-script';
-                  link.href      = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css';
-                  doc.head.appendChild(link)
+                 let ds = dependencyScripts.find(d => d.name === dependency );
+
+                 if(!ds){
+                     resolve('done');
+                     return;
+                 }
+
+                    const link     = document.createElement("link");
+                    link.rel       = 'stylesheet';
+                    link.className = ds.name+'-script';
+                    link.href      = ds.css;
+                    doc.head.appendChild(link)
+        
+                    const script     = document.createElement("script");
+                    script.src       = ds.js;
+                    script.className = ds.name+'-script';
+                    doc.body.appendChild(script);
+
+                    dependencies.push(ds)
       
-                  const script     = document.createElement("script");
-                  script.src       = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js';
-                  script.className = 'splidejs-script';
-                  doc.body.appendChild(script);
-      
-                  dependencies.push({
-                    name:'splidejs',
-                    js:script.src,
-                    css:link.href
-                  })
       
                   addLocal('gram-dependencies',dependencies)
       
@@ -320,6 +336,15 @@ class Gramateria {
       
               appendDependency().then((dep)=>{
                 if(dep === dependency) return;
+            
+
+                let cScripts           = getLocal('gjs-scripts');                  
+                let isCustomScriptExit = cScripts.filter(d=>d.name === dependency);
+    
+                if(isCustomScriptExit.length !== 0){
+                   return;
+                }
+
                 setTimeout(()=>{
                     const customScript = document.createElement("script");
                     customScript.innerHTML = customScripts(dependency);
@@ -345,8 +370,19 @@ class Gramateria {
     }
 
     removeDependency (dependency){
-
         let doc = this.editor.Canvas.getDocument();
+
+        let customScript = getLocal('gjs-scripts');
+       // Custom scripts
+        for(let custom of customScript){
+            let allCustomScripts = doc.querySelectorAll(`.${custom.name}-script`);
+            allCustomScripts.forEach(e=>e.outerHTML = '')
+        }
+        customScript = customScript.filter(c=>c.name !== dependency);
+        addLocal('gjs-scripts',customScript);
+
+
+        // Dependencies / plugins
         let dependencies = getLocal('gram-dependencies');
         if(dependencies.length == 0) return;
 
@@ -357,10 +393,7 @@ class Gramateria {
         
         dependencies = dependencies.filter(d=>d.name !== dependency);
         addLocal('gram-dependencies',dependencies);
-        
-        let customScript = getLocal('gjs-scripts');
-            customScript = customScript.filter(c=>c.name !== dependency);
-            addLocal('gjs-scripts',customScript);
+
     }
 
     listenAddDependencies = () =>{
