@@ -24,6 +24,8 @@ Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 
 ##### Build desktop app
 ```npm run pack```
+Check `export` folder after this command. 
+
 ----
 
 ### v1.0.6 Change logs
