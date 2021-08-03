@@ -5,7 +5,8 @@
   "description": "Open source drag and drop website builder with bootstrap 5",
   "main": "index.js",
   "scripts": {
-    "gen": "mix",
+    "dev": "mix",
+    "prod": "mix --production",
     "watch": "mix watch",
     "start": "electron index.js",
     "pack": "electron-builder --dir",
@@ -34,16 +35,21 @@
     "win": {
       "asar": false,
       "target": "nsis",
-      "icon": "build/icon.ico"
+      "icon": "icons/icon.ico"
     },
     "mac": {
-      "icon": "build/icon.png"
+      "icon": "icons/icon.png"
     },
     "nsis": {
-      "installerIcon": "build/icon.ico",
-      "installerHeaderIcon": "build/icon.ico",
+      "installerIcon": "icons/icon.ico",
+      "installerHeaderIcon": "icons/icon.ico",
       "deleteAppDataOnUninstall": true
-    }
+    },
+    "files":[
+      "*.js",
+      "build",
+      "node_modules"
+    ]
   },
   "license": "MIT",
   "devDependencies": {

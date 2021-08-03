@@ -37,6 +37,16 @@ export default (dependency) => {
                 }, false)
              })();
             `
+        },
+        {
+            name:'glightbox',
+            script:`(()=>{
+                new GLightbox({
+                    touchNavigation: true,
+                    loop: true,
+                    autoplayVideos: true
+                })
+            })()`
         }
     ]
 

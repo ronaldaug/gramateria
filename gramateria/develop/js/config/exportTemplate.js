@@ -1,3 +1,5 @@
+// HTML codes for index.html
+
 import { getLocal } from './../helpers/index';
 
 export const exportTemplate = (data)=>{

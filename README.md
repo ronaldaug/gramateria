@@ -2,6 +2,8 @@
 
 Gramateria a drag and drop web builder which is built with GrapesJS but with a different look, blocks and components. And v1.0.6 is using Bootstrap 5, can generate a Desktop app with ElectronJS and can deploy to Netlify.
 
+[DEMO](https://gramateria.netlify.app)
+
 <img src="https://res.cloudinary.com/dpnea22ek/image/upload/w_1400/v1627100771/gramateria.jpg" />
 
 ----
@@ -17,17 +19,21 @@ Gramateria v1.0.6 is a re-rewritten version that changed many features and code.
 
 ```npm start```
 
-#### Generate sources
-```npm run gen```
+## Development
+#### Compile sources
 
-#### Watch sources
+```npm run dev```
+
 ```npm run watch```
 
+```npm run prod```
 
-##### Build desktop app
+
+## Build desktop app
+
 ```npm run pack```
 
-Check `export` folder after `npm run pack` command. 
+Check `export` folder after running `npm run pack` command. 
 
 ----
 
@@ -51,9 +57,12 @@ Because making Gramateria to compatible with Vue, ElementUI and Firebase version
 
 #### Roadmap
 - Add more blocks
+- Change icons for section blocks
 - Make it available for linux and window. 
 - Add more SEO tags
 - Build multiple pages 
+- Improve UI
+
 ### Credits
 - Grapesjs [Grapes JS](https://www.grapesjs.com/ "Grapes Js")
 - Bootstrap 5 [Bootstrap 5](https://www.getbootstrap.com/ "Bootstrap 5")

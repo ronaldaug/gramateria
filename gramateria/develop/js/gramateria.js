@@ -5,28 +5,11 @@ import {addLocal, getLocal} from './helpers/index'
 import assetManager from './config/assetManager'
 import buttons from './config/buttons'
 import { checkExtension, loadingSpinner } from './helpers/index.js'
-import { Notyf } from 'notyf';
-import 'notyf/notyf.min.css'; // for React, Vue and Svelte
+import { Notyf } from 'notyf'
+import sectionDependencies from './config/sectionDependencies'
+import dependencyCDNLinks from './config/dependencyCDNLinks'
 
-// Section that has dependency
-let sectionDependencies = [
-    {
-        name:'testimonial',
-        dependencies:['splidejs']
-    },
-    {
-        name:'contact',
-        dependencies:['contactjs']
-    }
-]
-
-const dependencyScripts = [
-    {
-        name:'splidejs',
-        css:'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css',
-        js:'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js'
-    }
-]
+import 'notyf/notyf.min.css'; 
 
 class Gramateria {
     constructor() {
@@ -279,14 +262,16 @@ class Gramateria {
     }
 
     
-    runCustomScript = () =>{
+    appendCustomScript = () =>{
         // Append Custom Script
        let doc = this.editor.Canvas.getDocument();
        let gjsScripts = getLocal("gjs-scripts");
        for(let s of gjsScripts){
         const scriptEl     = document.createElement('script');
          scriptEl.className = `${s.name}-script`;
-         scriptEl.innerHTML = s.script;
+         scriptEl.innerHTML = `window.addEventListener('DOMContentLoaded', (event) => {
+            ${s.script}
+         })`;
          doc.body.appendChild(scriptEl);
        }
      
@@ -306,10 +291,10 @@ class Gramateria {
                      return;
                   }
       
-                 let ds = dependencyScripts.find(d => d.name === dependency );
+                 let ds = dependencyCDNLinks.find(d => d.name === dependency );
 
                  if(!ds){
-                     resolve('done');
+                     resolve('skip');
                      return;
                  }
 
@@ -329,7 +314,7 @@ class Gramateria {
       
                   addLocal('gram-dependencies',dependencies)
       
-                  resolve('done');
+                  resolve(script);
       
                 })
               }
@@ -345,27 +330,23 @@ class Gramateria {
                    return;
                 }
 
-                setTimeout(()=>{
+                // Append custom script after the cdn script loaded
+                dep.addEventListener('load',()=>{
+
                     const customScript = document.createElement("script");
                     customScript.innerHTML = customScripts(dependency);
                     customScript.className = `${dependency}-script`;
                     doc.body.appendChild(customScript);
-                    let custom = customScript.innerHTML;
-      
-                   const storeCustomScripts = (name,script) =>{
                       
-                      let customScriptArr = getLocal('gjs-scripts');                      
-                          customScriptArr.push({
-                            name,
-                            script
-                          })
+                    let customScriptArr = getLocal('gjs-scripts');                      
+                        customScriptArr.push({
+                            name:dependency,
+                            script:customScript.innerHTML
+                        })
                           
-                          addLocal('gjs-scripts',customScriptArr);
-                    }
-      
-                    storeCustomScripts(dependency,custom);
-      
-                },2000)
+                    addLocal('gjs-scripts',customScriptArr);
+                })
+                    
               })        
     }
 
@@ -466,7 +447,7 @@ class Gramateria {
 
             });
 
-            this.runCustomScript();
+            this.appendCustomScript();
         });
 
         this.editor.getWrapper().addClass('iframe-wrapper');
