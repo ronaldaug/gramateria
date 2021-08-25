@@ -40,6 +40,15 @@
     "mac": {
       "icon": "icons/icon.png"
     },
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        "deb",
+        "rpm",
+        "appimage",
+        "tar.gz"
+      ]
+    },
     "nsis": {
       "installerIcon": "icons/icon.ico",
       "installerHeaderIcon": "icons/icon.ico",
