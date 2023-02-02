@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "file-saver": "^2.0.5",
-    "jszip": "^3.6.0",
+    "jszip": "^3.8.0",
     "laravel-mix": "^6.0.25",
     "notyf": "^3.10.0"
   }
